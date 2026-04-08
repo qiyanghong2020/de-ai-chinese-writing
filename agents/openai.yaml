@@ -1,4 +1,4 @@
 interface:
   display_name: "去 AI 腔"
-  short_description: "把中文文章、文档和汇报改得更自然顺口，减少模板味、讲义腔和机器感"
-  default_prompt: "Use $de-ai-chinese-writing to rewrite this Chinese draft so it sounds natural, human, and less templated without losing meaning, facts, or logic."
+  short_description: "把中文文章、文档和汇报改得更自然顺口，减少模板味、翻译腔、讲义腔和机器感"
+  default_prompt: "Use $de-ai-chinese-writing to rewrite this Chinese draft so it sounds natural, human, and less templated while preserving meaning, facts, logic, and evidence boundaries."
