@@ -125,3 +125,27 @@ If the wording is generic enough to fit many unrelated drafts, rewrite it into t
 - Do not use internet slang to fake “human warmth”.
 - Do not solve AI tone by making the copy loose, cute, or exaggerated.
 - Do not stop after replacing one bad phrase if the nearby prose still sounds templated.
+
+## What Helps vs. What Hurts
+
+Some public "去 AI 腔" advice is useful, but some of it makes Chinese prose worse.
+
+Keep these:
+
+- vary sentence length and paragraph openings
+- reduce stock connectives like `首先 / 其次 / 最后 / 综上所述`
+- prefer simpler verbs over nominalized phrasing such as `进行了分析`
+- mix simple and slightly longer sentences naturally
+- end cleanly instead of adding empty closing slogans
+
+Do not do these by default:
+
+- do not add filler particles just to sound human, such as forcing extra `的 / 了 / 到 / 过 / 会 / 有 / 能`
+- do not mechanically merge short sentences into long ones
+- do not deliberately reduce the number of `。` and replace them with commas or semicolons just to blur the rhythm
+- do not force first-person voice such as `我觉得 / 我看来 / 我试过` unless the document is genuinely personal
+- do not use fake intimacy or canned口语 such as `说白了 / 这事儿 / 其实很简单`
+- do not introduce errors like swapping `的 / 地 / 得` on purpose
+- do not rewrite a natural factual sentence into an awkward inversion just to dodge detectors
+
+The goal is natural Chinese, not distorted Chinese.
