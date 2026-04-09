@@ -11,6 +11,7 @@ Read `references/markers.md` when you need concrete examples of AI-like phrasing
 Read `references/rewrite_patterns.md` when you want phrase-level before/after rewrite patterns you can apply quickly.
 Read `references/risk_words_quicklist.md` when you want a fast sweep for high-risk words and their more natural Chinese alternatives.
 Read `references/thesis-medical.md` when the task is a thesis, dissertation, medical paper, academic discussion section, or other formal Chinese scholarly prose where genre-appropriate wording matters as much as sentence smoothness.
+Read `references/execution-patterns.md` when the task is a long document, a document with layout-sensitive structure, or a staged rewrite where you need segmented processing, compact style memory, and safer pass planning.
 
 ## Workflow
 
@@ -36,6 +37,26 @@ At minimum, check:
 - the paragraph it sits in
 - the paragraph before and after
 - any heading or summary box that carries the same tone
+
+### 2.5. Use segment-safe execution for long or structure-sensitive documents
+
+For long documents, layout-sensitive documents, or files with automatic fields, do not treat “rewrite everything” as one monolithic text job.
+
+Prefer this execution pattern:
+
+- use the paragraph or local block as the default rewrite unit
+- separate titles, captions, automatic fields, references, formulas, and table-heavy zones from normal body prose
+- skip very short segments, already-natural lines, and structural labels unless the user explicitly wants them rewritten
+- do a quick diagnostic sweep first, then rewrite only the blocks that actually need help
+- when a second pass is needed, use it only for unresolved clusters or local harmonization, not for another full-document churn
+- keep a compact style-memory note for the current batch instead of carrying full rewritten history into every later segment
+- when rewriting a local block, output only the rewritten block; do not add labels, explanations, or side commentary inside the content
+
+Borrow the process discipline, not the verbosity:
+
+- do not expand verbs or add helper words just to make the sentence look “less AI”
+- do not make the sentence longer unless the extra words carry real meaning, boundary, or evidence
+- do not force a two-stage rewrite when one clean local pass is enough
 
 ### 3. Remove machine-smoothed wording first
 
@@ -174,8 +195,8 @@ High-risk mismatch:
 
 Examples:
 
-- `证据链` -> depending on context, often better as `验证框架` / `结果框架` / `证据体系`
-- `闭环` -> often better as `前后对应` / `相互印证` / `形成完整验证`
+- `证据链` -> depending on context, often better as `证据基础` / `证据体系` / directly naming the result layers
+- `闭环` -> often better as `前后对应` / `相互印证` / `方法与结果能够对应`
 - `交付物` -> often better as `材料` / `输出材料` / `补充材料`
 - `核对` -> in formal medical prose often better as `复核` / `比较` / `一致性检查`
 - `线索` -> when not truly exploratory, often better as `依据` / `特征` / `候选因素` / `结果`
@@ -398,6 +419,9 @@ If the wording is generic enough to fit many unrelated drafts, rewrite it into t
 
 These are allowed tools, not default mannerisms.
 
+Do not use this section by default for thesis, medical, or academic prose.  
+In those modes, first-person stance, oral markers, and mild attitude words stay off unless the source text already uses them and the user explicitly asks for a looser tone.
+
 ### A. Light first-person voice can help
 
 When the draft benefits from a real speaker, you may add a light first-person stance such as:
@@ -496,14 +520,18 @@ Use:
 
 - field-typical nouns
 - conservative sentence handling in methods, captions, and citation-heavy passages
+- evidence-reporting verbs that preserve study design and inference level
 - calm authorial stance when emphasis or boundary-setting helps
 - wording that distinguishes observation, interpretation, and limitation
 
 Keep restrained:
 
+- first person
 - oral markers
 - conversational attitude
 - product, consulting, or engineering workflow language that does not belong to the field
+- rewriting `研究表明` / `数据显示` / `结果提示` / `相关分析发现` into colloquial observation phrases
+- mechanically downgrading exact terms such as `机制`, `框架`, `临床层面`, or `维度`
 
 ## Default Rewrite Targets
 
@@ -537,3 +565,5 @@ Keep restrained:
 - If a sentence already sounds natural in plain Chinese, do not force extra “human signals” into it.
 - Do not confuse “human variation” with adding errors; the goal is natural variation, not broken grammar.
 - Do not force colloquial metaphors onto abstract subjects. If a phrase sounds half-oral and half-abstract, rewrite it back into plain natural Chinese.
+- In thesis, medical, and academic mode, do not downgrade evidence-reporting verbs into colloquial observation phrases.
+- In thesis, medical, and academic mode, do not replace exact field terms with looser everyday wording unless the source term is clearly acting as empty scaffolding.
