@@ -58,6 +58,25 @@ Borrow the process discipline, not the verbosity:
 - do not make the sentence longer unless the extra words carry real meaning, boundary, or evidence
 - do not force a two-stage rewrite when one clean local pass is enough
 
+### 2.6. Calibrate to a writing sample when one exists
+
+If the user provides a sample of their own writing, do not treat it as decorative context.
+
+Use it to extract only a compact style memory such as:
+
+- sentence length tendency: short, medium, or long
+- paragraph opening habit: direct entry, contextual setup, or mixed
+- punctuation habit: whether the writer uses `；`, `：`, `——`, parentheses, or almost none of them
+- stance level: flat explanatory, mildly assertive, or visibly authorial
+
+Then apply those features to the rewrite without copying verbal tics mechanically.
+
+Keep these boundaries:
+
+- preserve the sample's rhythm and stance, not its topic-specific wording
+- do not imitate quirks that would look fake when transplanted
+- if the task is thesis, medical, or formal academic prose, keep evidence-reporting verbs and field-typical nouns even when the sample is looser
+
 ### 3. Remove machine-smoothed wording first
 
 Prioritize these fixes:
@@ -246,6 +265,12 @@ Preferred response:
 - let one sentence stop earlier when the judgment already lands; do not always complete the same “judgment -> explanation -> boundary” package
 - in thesis writing, inspect clusters rather than isolated sentences
 
+Quick diagnostic thresholds:
+
+- if roughly 40% or more of the sentences in one paragraph start with connective openers, treat it as overload
+- if the same opener appears twice in one short paragraph, vary at least one of them
+- if three nearby sentences feel too similar in length, landing point, or syntactic weight, break one earlier or let one carry more load
+
 Interpretation note:
 
 - `less perfect` does not mean adding mistakes
@@ -412,8 +437,11 @@ Before finishing, read each paragraph and ask:
 - Does the paragraph have a calm authorial stance, or does it sound like no one is actually making choices?
 - Does this sound like someone who actually worked on the problem, or someone summarizing how such work is usually described?
 - Can I see the problem boundary, research friction, and result hierarchy?
+- What still looks obviously AI-generated at first glance?
 
 If the wording is generic enough to fit many unrelated drafts, rewrite it into that document's own subject, action, and result.
+
+If the answer to that last question comes quickly, do one more local pass before finishing.
 
 ## Selective Human Signals
 
@@ -441,9 +469,15 @@ Do not use first person to blur attribution. Evidence still belongs to the study
 
 When a sentence绕一圈才落到动作，直接压平：
 
+- `进行了分析` -> `分析了`
+- `开展了研究` -> `研究了`
 - `进行了讨论` -> `讨论了`
+- `进行了说明` -> `说明了`
+- `进行了探讨` -> `探讨了`
 - `实现了优化` -> `优化了`
+- `实现了提升` -> `提高了`
 - `完成了分析` -> `分析了`
+- `作出了回应` -> `回应了`
 
 ### C. A little oral texture is okay
 
