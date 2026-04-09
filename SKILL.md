@@ -42,10 +42,13 @@ Prioritize these fixes:
 
 - replace vague “slippery” words with concrete subjects, actions, and outcomes
 - replace translationese abstract nouns and source-language scaffolding with natural Chinese when a direct expression exists
+- replace contrast framing such as `不是……而是……`, `并非……而是……`, `不只是……而是……`, and `不靠……而是……` with direct statements whenever precision does not require the contrast
 - break over-smoothed rhythm when sentence length, sentence structure, or paragraph movement feels too even
 - trim over-explained logic when the paragraph insists on spelling out every bridge instead of carrying one decisive point
 - cut low-information connective openers
+- remove rhetorical booster words and filler emphasis such as `真正`, `真正的`, `实际上`, `最值得`, or similar words when they are only propping up tone
 - remove commentary about the writing itself
+- remove reader-stage scaffolding and teacher-like prompts
 - collapse textbook-style explanation scaffolding into direct content statements
 - vary repeated sentence templates and paragraph openings
 - clean up punctuation habits that make Chinese look machine-smoothed
@@ -59,6 +62,7 @@ Bad pattern:
 
 Preferred pattern:
 
+- say it directly before you contrast it
 - say what happened
 - say what changed
 - say what the number means
@@ -67,11 +71,12 @@ Preferred pattern:
 Recommended pass order:
 
 1. remove commentary about the writing itself
-2. replace滑词 and translationese abstract nouns
-3. simplify绕行动词, nominalized phrasing, and over-standardized phrase bundles
-4. break over-even rhythm and trim over-complete explanation
-5. reduce repeated connectives and repeated “objective” openers
-6. add a little human texture only if the paragraph still feels too flat
+2. replace contrast framing, rhetorical boosters, and teacher-like scaffolding with direct statements
+3. replace滑词 and translationese abstract nouns
+4. simplify绕行动词, nominalized phrasing, and over-standardized phrase bundles
+5. break over-even rhythm and trim over-complete explanation
+6. reduce repeated connectives and repeated “objective” openers
+7. add a little human texture only if the paragraph still feels too flat
 
 Pay special attention to these three common AI-polish symptoms:
 
@@ -80,6 +85,74 @@ Pay special attention to these three common AI-polish symptoms:
 - abstract phrase bundles appear in clusters and start to feel like concept blocks rather than lived Chinese
 - the paragraph logic falls into a standard review-style push every time, such as neat two-step or two-paragraph progression that feels preassembled
 
+### 3.5. Prefer direct, flat, respectful statements
+
+When a sentence can be said directly, say it directly.
+
+Prefer:
+
+- direct declarative sentences
+- concrete subjects and concrete verbs
+- calm, flat explanation instead of correction-first rhetoric
+- content-telling narrative instead of commentator voice
+
+Avoid by default:
+
+- `不是……而是……`
+- `并非……而是……`
+- `不只是……而是……`
+- `不靠……而是……`
+- `真正`
+- `真正的`
+- `实际上`
+- `最需要盯住的是`
+- `普通人最该记住的是`
+- `读这篇文章时`
+- `放在一起看`
+- `再往下看`
+
+If contrast is genuinely needed to correct a likely misunderstanding, keep it once and make the correction concrete. Do not let contrast framing become the paragraph's default skeleton.
+
+### 3.6. Remove commentator and teacher voice
+
+High-risk signs:
+
+- the sentence comments on how the text is written instead of what the source says
+- the writer stands beside the material and tells the reader what to notice
+- the writer ranks what the reader “should” remember
+- the writer sounds like they are leading a class, not sharing content
+
+Prefer:
+
+- `图 2 里，病例组的……更高`
+- `这一步只回答了……`
+- `后面没有看到……`
+
+Avoid:
+
+- `这一点很关键`
+- `最值得记住的是`
+- `可以这样理解`
+- `更像是在提醒我们`
+- `先看……再看……`
+- `这张图的作用很朴素`
+
+### 3.7. Keep the reader relationship level
+
+In public-facing writing, do not lower the reader's status just to sound explanatory.
+
+Avoid:
+
+- labeling the reader as `普通人`, `普通读者`, or similar identity-setting phrases
+- management-style phrasing such as `别往后拖`, `不能轻轻放过`, `最该记住的是`
+- over-helpful reader prompts that sound like seminar guidance rather than natural prose
+
+Prefer:
+
+- direct description of the result, risk, choice, or next step
+- flat, respectful action wording
+- situation-based wording such as `就医的人`, `关心这件事的人`, or no label at all
+
 ### 4. Prefer concrete Chinese rhythm
 
 Default rhythm:
@@ -87,6 +160,7 @@ Default rhythm:
 - short to medium paragraphs
 - one information cluster per paragraph
 - direct verbs over abstract nouns
+- direct statements before summary comments
 - natural spoken cadence without slang or performance
 - when the draft feels too neutral or over-objective, allow a little lived voice, mild stance, or conversational texture
 - let sentence length and sentence structure vary naturally; do not let a whole paragraph glide forward in the same rhythm
@@ -105,6 +179,7 @@ Prefer:
 - `讨论了 / 优化了 / 分析了`
 - `我更在意的是……` when the document benefits from a visible speaker
 - `说实话 / 有点可惜 / 其实` when one small oral marker helps the sentence land more naturally
+- `需要尽快处理` / `建议尽快接上` when action advice is needed without sounding commanding
 
 Avoid:
 
@@ -116,6 +191,8 @@ Avoid:
 - lists where every item is展开得 equally smooth, equally complete, and equally weighted when the writer clearly cares more about one of them
 - “concept-block” phrasing where several abstract bundles stack up in a row and the paragraph starts sounding assembled rather than written
 - paragraph logic that feels pre-slotted into the same two-part review movement again and again
+- sentences that exist mainly to tell the reader how to read the material
+- sentences that lean on `不是……而是……` or `真正 / 实际上` to manufacture force
 
 ### 4.5. Clean up punctuation and notation habits
 
@@ -238,12 +315,14 @@ Use:
 - natural spoken rhythm
 - occasional mild stance when it helps the paragraph feel spoken
 - very light oral texture
+- flat, respectful reader relationship
 
 Keep restrained:
 
 - first person should be rare
 -口语词 should appear only when they truly help the sentence land
 - attitude should stay mild and factual
+- avoid teacher-like guidance and commentary about what the reader should focus on
 
 ### Report / PRD / README / strategy mode
 
@@ -297,6 +376,11 @@ But still:
 - Do not solve AI tone by making the copy loose, cute, or exaggerated.
 - Do not stop after replacing one bad phrase if the nearby prose still sounds templated.
 - Prefer direct plain statements over expert-posturing. Write the fact, the number, and the boundary; do not sound like a lecturer or an authority performing expertise.
+- If a sentence can be stated directly, remove the contrast phrase or emphasis word and keep the declarative statement.
+- Do not default to `不是……而是……`, `并非……而是……`, `不只是……而是……`, or `不靠……而是……` as a sentence pattern.
+- Do not use `真正`, `真正的`, or `实际上` as headline boosters, takeaway fillers, or emphasis crutches.
+- Do not comment on the writing itself with lines such as `信息很清楚`, `边界很明确`, `最值得记住的是`, or similar meta-summary language.
+- Do not write from above the reader with phrases such as `普通人最该记住的是`, `最需要盯住的是`, `别往后拖`, or similar control language when a flat statement would do.
 - Treat first-person stance,口语词, and mild attitude as optional seasoning, not mandatory ingredients.
 - If a sentence already sounds natural in plain Chinese, do not force extra “human signals” into it.
 - Do not force colloquial metaphors onto abstract subjects. If a phrase sounds like half-oral, half-abstract Chinese such as a fabricated “spoken” collocation, rewrite it back into plain natural Chinese.
@@ -322,6 +406,10 @@ Keep these:
 - when a paragraph feels too symmetrical, break the rhythm with one cleaner sentence instead of polishing every sentence to the same finish
 - when a judgment already lands, stop there; do not always add the extra “what this means” layer unless it is needed
 - vary paragraph jobs; do not let adjacent paragraphs all move through the same “background -> explanation” review cadence
+- replace contrast-first phrasing with direct statements when the sentence does not truly need a rebuttal shape
+- remove rhetorical filler emphasis such as `真正` or `实际上` when the evidence already carries the point
+- replace teacher-like prompts with direct content statements
+- keep the reader relationship level and respectful, especially in public-facing writing
 
 Do not do these by default:
 
@@ -340,5 +428,8 @@ Do not do these by default:
 - do not rewrite a natural factual sentence into an awkward inversion just to dodge detectors
 - do not add or remove spaces mechanically just to imitate a style guide; spacing should help reading, not announce itself
 - do not ban `/` or English quotes blindly when they are part of an exact title, URL, notation, or product string
+- do not build momentum by negating a weaker version of the sentence first; write the stronger sentence directly
+- do not turn headings, leads, figure notes, or takeaways into little lectures about what the reader should notice
+- do not use `真正`, `实际上`, or similar words to simulate authority when the sentence has not yet said anything concrete
 
 The goal is natural Chinese, not distorted Chinese.
