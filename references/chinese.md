@@ -23,6 +23,8 @@ Keep facts fixed first:
 Then remove the machine-smoothed surface:
 
 - replace vague slippery words with concrete subjects, actions, and outcomes
+- judge risky words by context, not as banned words; a precise term can stay in one sentence and feel wrong in another
+- judge replacement phrases by context too. A phrase that fixed one draft can sound AI-like in the next if it still narrates the writing process instead of naming the study fact.
 - replace translationese abstract nouns with natural Chinese when a direct expression exists
 - cut low-information connective openers
 - remove rhetorical booster words such as `真正`, `实际上`, and `最值得` when they only prop up tone
@@ -53,6 +55,8 @@ Avoid by default:
 - `再往下看`
 
 If contrast is genuinely needed to correct a likely misunderstanding, keep it once and make the correction concrete. Do not let contrast framing become the paragraph's default skeleton.
+
+Natural Chinese usually states the point directly before it corrects. When a draft says `不是……而是……`, first try writing the positive claim by itself. Keep the contrast only when the reader is likely to hold the exact misunderstanding being corrected, or when the contrast separates proxy endpoints from real outcomes. Do not use contrast as the default way to sound precise.
 
 ## Clean up punctuation habits
 
@@ -148,10 +152,10 @@ Prefer direct image reading:
 概念移动风险：
 
 - `走向痴呆`, `走到有症状`, `走向结局` 容易让概念像在自己移动。优先改成具体事件：`出现痴呆`, `出现症状`, `认知下降`，或直接写论文测量的终点。
-- `指向同一个现象` 常常遮住了真正的结果。优先改成 `看到的是同一件事：...`, `结果一致：...`，或直接写共同发现。
-- `在哪个节点改变方向` 和 `改变方向` 容易像研讨会语言。优先写成 `在哪一步出现分岔`, `哪类细胞反应参与分岔`，或直接写比较中的具体过程。
-- `把问题放回...`, `放回空间位置里看`, `先被放到同一张图里` 常常是在描述写作者怎么处理材料，而不是研究事实。优先改成 `分析捐献人脑组织`, `和切片位置对应起来`，或让标题直接说图里有什么。
-- `没有停在...` 通常是在评价论文野心。优先改成 `作者没有只比较...`，然后写实际比较了什么。
+- `指向同一个现象`, `看到的是同一件事` 常常遮住了真正的结果。优先改成 `三种方法得到的结果方向一致：...`, `验证结果都支持...`，或直接写共同发现。
+- `在哪个节点改变方向`, `改变方向`, `走向`, `推向` 容易像研讨会语言。优先写成哪类细胞、标记、病理或结局增加/减少/出现，或直接写比较中的具体过程。
+- `把问题放回...`, `放回空间位置里看`, `先被放到同一张图里`, `和切片位置对应起来` 常常是在描述写作者怎么处理材料，而不是研究事实。优先改成 `分析捐献人脑组织`, `同时比较...和切片位置`, `结合切片位置分析...`，或让标题直接说图里有什么。
+- `没有停在...`, `没有只比较...` 通常是在评价论文野心或制造对比。优先改成 `研究进一步比较了...`, `作者还比较了...`，然后写实际比较了什么。
 - `伴随` 可以表达相关性；如果它只是模糊转述，改成论文里的实际变化：`更高`, `更常出现`, `同时出现`, `未见增加`。
 
 For headings and summary boxes, ask whether the line can be understood without reading the writer's intent. If the line mainly says "this paragraph is important," replace it with what is important.
