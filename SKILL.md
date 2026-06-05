@@ -1,6 +1,6 @@
 ---
 name: de-ai-writing
-description: Rewrite Chinese or English prose so it reads more naturally and less like AI-generated text while preserving facts, evidence, logic, genre, and author intent. Use when the user asks to 去 AI 腔, 去除 AI 味, humanize writing, make it less AI, less ChatGPT-like, less generic, more natural, more human, more authorial, less templated, or when Chinese or English prose feels over-structured, repetitive, connector-heavy, vague, over-polished, lexically flat, voice-less, or machine-smoothed. Works across articles, reports, theses, academic prose, PRDs, README files, product copy, emails, presentations, newsletters, and other Chinese or English writing tasks.
+description: Rewrite Chinese or English prose so it reads more naturally and less like AI-generated text while preserving facts, evidence, logic, genre, and author intent. Use when the user asks to 去 AI 腔, 去除 AI 味, humanize writing, make it less AI, less ChatGPT-like, less generic, more natural, more human, more authorial, less templated, or when Chinese or English prose feels over-structured, repetitive, connector-heavy, vague, over-polished, lexically flat, voice-less, translation-like, or machine-smoothed. Works across English manuscripts, academic writing, thesis prose, Chinese medical writing, translated drafts, emails, application letters, reports, PRDs, README files, product copy, presentations, newsletters, and other Chinese or English writing tasks.
 ---
 
 # De-AI Writing
@@ -12,7 +12,7 @@ Use this skill to turn stiff, templated, or machine-smoothed Chinese or English 
 Load only the references that fit the task:
 
 - Read `references/chinese.md` for Chinese drafts or mixed drafts where the main prose is Chinese.
-- Read `references/english.md` for English drafts or mixed drafts where the main prose is English.
+- Read `references/english.md` for English drafts or mixed drafts where the main prose is English, especially academic manuscripts, section-level manuscript editing, translation-like English, sentence polishing, emails, application letters, narrative prose, or requests that mention tools such as Paperpal, DeepL Write, Grammarly, Wordtune, Hemingway Editor, ProWritingAid, QuillBot, or "AI humanizer".
 - Read `references/execution-patterns.md` for long documents, layout-sensitive documents, staged rewrites, or files with automatic fields.
 - Read `references/thesis-medical.md` for Chinese theses, dissertations, medical papers, academic discussion sections, or formal Chinese scholarly prose.
 
@@ -43,6 +43,7 @@ Make a quick local diagnosis:
 
 - Which language lane applies?
 - What genre is this: academic, public article, report, product doc, email, speech, personal essay, or README?
+- Which edit lens applies: academic manuscript, naturalized translation, tone and clarity, expression variants, brevity, long-form style, or humanizer-caution?
 - Is the AI feel mostly lexical, structural, tonal, or caused by missing specificity?
 - Does the user provide a writing sample that should calibrate rhythm and stance?
 - Are there protected zones: references, formulas, tables, citations, figure titles, legal wording, automatic fields, code, or UI strings?
@@ -86,6 +87,8 @@ Prioritize fixes that restore specific human judgment:
 - preserve field-typical terms when they are precise
 
 Do not make the prose longer just to seem more human. Do not introduce mistakes, slang, or awkwardness as camouflage.
+
+If the request is framed around a direct "AI humanizer" or detector bypass tool, convert it into a meaning-preserving genre edit. Avoid synonym churn, random imperfection, and any promise that the output will evade Turnitin, GPTZero, or another detector.
 
 ### 6. Match the genre
 

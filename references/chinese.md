@@ -105,6 +105,48 @@ Preferred response:
 - if the relation is obvious from context, let context carry it
 - if the relation must stay, express it through object, action, comparison, sequence, or consequence instead of stock markers
 
+## Check titles, captions, and editorial read-feel
+
+Chinese public articles and explainers can still feel AI-written after the body is polished if the title, section headings, captions, or summary boxes keep an editorial commentary voice.
+
+Title risks:
+
+- vague endings such as `给出线索`, `结果与边界`, `值得关注`, `带来启示`, and `说明了什么`
+- titles that only name an abstract mechanism, module, pathway, or framework without a reader-facing question, group, result, or consequence
+- titles that sound like a paper archive entry rather than a reason to read
+
+Prefer titles that make the meaning clear quickly:
+
+- the concrete question being answered
+- the people, condition, product, or decision involved
+- the result, tradeoff, risk, or downstream consequence
+
+Editorial read-feel risks:
+
+- `核心信息是`
+- `主线很清楚`
+- `证据边界也要放在前面`
+- `读完后的现实落点`
+- `这篇论文能支持什么`
+- `这篇研究给出的启示是`
+
+These phrases are often factually harmless, but they put the writer beside the material, commenting on the article's value. Rewrite them into the underlying fact, result, decision, or limitation.
+
+Caption and figure-note risks:
+
+- `图 X 给出关键对照`
+- `图 X 交代数据规模`
+- `图 X 串起整个过程`
+- `图 X 锚定了结论`
+
+Prefer direct image reading:
+
+- `图 X 中，A 和 B 差异不明显；C 在病例组更高。`
+- `图 X 列出样本和数据规模：...`
+- `图 X 把早期反应和晚期反应分开。`
+
+For headings and summary boxes, ask whether the line can be understood without reading the writer's intent. If the line mainly says "this paragraph is important," replace it with what is important.
+
 ## Mode calibration
 
 Public explainer or literature-sharing mode:
