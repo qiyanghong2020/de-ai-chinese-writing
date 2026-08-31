@@ -161,6 +161,108 @@ Avoid:
 - vague praise words such as `commendable` or `groundbreaking` unless quoted or justified
 - polishing away the author's actual analytic stance
 
+#### Document-level structural AI tone in academic and framework papers
+
+These are style and structure risk signals, not evidence that a model authored the manuscript. Judge them as clusters and by the work each passage performs; do not use a fixed count as an authorship test. Apply this scan to a whole manuscript only when the user has asked for manuscript-wide review or restructuring.
+
+##### Cross-section semantic redundancy
+
+High-risk signs:
+
+- the central thesis returns in the Introduction, framework, Discussion, governance section, and Conclusion through near-synonymous wording
+- a later occurrence adds no evidence, boundary condition, counterargument, operational consequence, or new inference
+
+Preferred response:
+
+- map each occurrence of the thesis and keep the fullest statement where it performs necessary argumentative work
+- require later occurrences to add a distinct function; otherwise shorten, merge, or delete them while preserving necessary Abstract-Introduction-Conclusion correspondence
+
+Example: `Internal consistency is not external validation` later becomes `Self-checking cannot establish clinical fitness` without a new consequence. Keep one full explanation and tie any later mention to the specific decision it changes.
+
+##### Repeated rhetorical closure
+
+High-risk signs:
+
+- each section independently defines a distinction, explains it, preserves its boundary, and closes by restating it
+- sections read as parallel mini-essays and repeatedly return to the same final sentence
+
+Preferred response:
+
+- give each section one main job, such as defining the problem, presenting evidence, testing a limit, or deriving an implication
+- remove local conclusions that repeat the manuscript thesis rather than completing that section's distinct task
+
+Example: three consecutive sections all end with `X may support Y, but it cannot establish Z.` Let the first define the boundary; use the later sections for evidence and consequences instead of another closure.
+
+##### Over-neat taxonomy
+
+High-risk signs:
+
+- the manuscript repeatedly converts material into limits, risks, gates, tiers, states, classes, levels, matrices, or other named sets
+- the number and neatness of categories exceed what the conceptual contribution or decision problem requires
+
+Preferred response:
+
+- retain a taxonomy when its categories change interpretation, evaluation, decision, or action
+- merge decorative categories and preserve a defensible human-designed framework when each component has independent analytical work
+
+Example: `five limits -> five risks -> two gates -> four states -> four action classes` may be one useful framework or several restatements. Test what decision changes at each step before keeping all five layers.
+
+##### Conceptual relabeling
+
+High-risk signs:
+
+- the same distinction is successively renamed as a boundary, gate, state, tier, model, or framework
+- a new label introduces no new variable, relationship, testable proposition, or operational meaning
+
+Preferred response:
+
+- inventory defined terms and group labels that point to the same underlying distinction
+- keep the smallest stable vocabulary that preserves genuine conceptual differences
+
+Example: `verification boundary`, `validation gate`, and `use-state boundary` should not all survive merely because they sound progressively formal. Keep separate labels only if each controls a different inference or action.
+
+##### Low analytical increment
+
+High-risk signs:
+
+- a fluent abstract paragraph sounds correct but supplies no new evidence, constraint, scope condition, counterexample, or executable consequence
+- paraphrase and rhetorical emphasis create the appearance of progression
+
+Preferred response:
+
+- ask what the passage changes in the argument; merge or delete it if the answer is nothing
+- add specificity only from the manuscript or user-provided sources, never by inventing examples, evidence, or objections
+
+Example: `This distinction is crucial and further underscores the importance of preserving the boundary` adds emphasis, not analysis. Replace it with the supported consequence, or delete it.
+
+##### Contribution-to-length imbalance
+
+High-risk signs:
+
+- manuscript length grows faster than its evidential or conceptual contribution
+- one compact claim receives separate definitions, taxonomies, frameworks, transitions, and recaps without corresponding analytical gain
+
+Preferred response:
+
+- use the deletion test: if removing a passage loses no evidence, reasoning step, boundary, or conclusion, compress or remove it
+- do not pursue brevity mechanically; retain necessary methods, results, definitions, limitations, and field-required explanation
+
+Example: a one-sentence distinction does not need a definition section, a two-gate restatement, an evidence-state restatement, and a full concluding recap unless each adds a different function.
+
+##### Unchallenged central thesis
+
+High-risk signs:
+
+- the manuscript repeatedly confirms its main claim but never examines scope limits, failure conditions, competing explanations, or a nearby existing framework
+- apparent critical depth comes from restating the thesis more forcefully rather than testing it
+
+Preferred response:
+
+- recover supported qualifications, exceptions, and competing interpretations already present in the manuscript or supplied sources
+- treat this as an academic-argument quality check, not an authorship test, and do not invent a counterargument merely to make the prose look human
+
+Example: after establishing `X cannot establish Y`, a later section should clarify where X remains useful, when the boundary may be uncertain, or what evidence would change the conclusion if the available sources support those points.
+
 #### Scientific and medical table language
 
 For biomedical, translational, oncology, or molecular-biology manuscripts, table text can sound AI-generated even when the grammar is correct. The main risk is not stock adjectives; it is an internal framework label that does not match the field's usual table language.

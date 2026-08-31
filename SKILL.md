@@ -13,12 +13,14 @@ Load only the references that fit the task:
 
 - Read `references/chinese.md` for Chinese drafts or mixed drafts where the main prose is Chinese.
 - Read `references/english.md` for English drafts or mixed drafts where the main prose is English, especially academic manuscripts, section-level manuscript editing, translation-like English, sentence polishing, emails, application letters, narrative prose, or requests that mention tools such as Paperpal, DeepL Write, Grammarly, Wordtune, Hemingway Editor, ProWritingAid, QuillBot, or "AI humanizer".
-- Read `references/execution-patterns.md` for long documents, layout-sensitive documents, staged rewrites, or files with automatic fields.
+- Read `references/execution-patterns.md` for long documents, layout-sensitive documents, staged rewrites, files with automatic fields, or full-manuscript structural audits.
 - Read `references/thesis-medical.md` for Chinese theses, dissertations, medical papers, academic discussion sections, or formal Chinese scholarly prose.
 
 For Chinese work, use `references/chinese.md` first; it points to `references/markers.md`, `references/rewrite_patterns.md`, and `references/risk_words_quicklist.md` when concrete examples or quick phrase checks are needed.
 
 For English work, use `references/english.md` first; it contains the English-specific AI-tone markers, phrase risks, and genre lanes.
+
+For long English academic papers, Viewpoints, framework papers, or conceptual manuscripts, also read `references/execution-patterns.md`. If the user has authorized whole-manuscript revision, run the document-level structural audit before local rewriting; if the request is local, do not expand it into a manuscript-wide restructure.
 
 For English biomedical manuscripts or English tables in medical papers, keep the work in the English lane and use `references/english.md`, especially the scientific/medical table-language guidance. Use `references/thesis-medical.md` only when the main prose is Chinese medical or formal Chinese scholarly writing.
 
@@ -90,6 +92,8 @@ Do not make the prose longer just to seem more human. Do not introduce mistakes,
 
 If the request is framed around a direct "AI humanizer" or detector bypass tool, convert it into a meaning-preserving genre edit. Avoid synonym churn, random imperfection, and any promise that the output will evade Turnitin, GPTZero, or another detector.
 
+Do not infer authorship or the extent of AI use from prose style. If disclosure accuracy matters, distinguish language editing, substantive rewriting, framework design, and conceptual synthesis using the actual workflow and the target journal's policy. Without that evidence, state uncertainty rather than alleging undisclosed or improper use.
+
 ### 6. Match the genre
 
 Academic and thesis writing:
@@ -127,5 +131,9 @@ Before output, check:
 - the rewrite sounds like a plausible person in that genre
 - the paragraph no longer depends on stock phrasing to feel organized
 - any retained high-risk words are there because they are precise
+- for an authorized whole-manuscript academic edit, cross-section restatements add evidence, a boundary condition, an operational consequence, or a genuine inference
+- retained taxonomies and conceptual labels perform distinct analytical work rather than renaming the same distinction
+- manuscript length remains proportionate to the evidence and conceptual contribution
+- necessary definitions, Methods and Results detail, key limitations, and Abstract-Introduction-Conclusion correspondence were not removed as false redundancy
 
 When returning a rewrite, output the rewritten content directly unless the user asks for explanation, diagnostics, or before/after notes.
