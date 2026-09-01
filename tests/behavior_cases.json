@@ -1,0 +1,78 @@
+[
+  {
+    "id": "long-viewpoint-cross-section-redundancy",
+    "task": "Audit a 30-page English Viewpoint before local rewriting.",
+    "input_profile": {
+      "sections": [
+        "Abstract",
+        "Introduction",
+        "Five limits",
+        "Two-gate model",
+        "Evidence states",
+        "Governance",
+        "Conclusion"
+      ],
+      "recurring_thesis": "Self-verification can improve internal checking but cannot establish clinical validity.",
+      "labels": [
+        "boundary",
+        "gate",
+        "state",
+        "tier",
+        "model"
+      ]
+    },
+    "expected_decisions": [
+      "Create a thesis-recurrence map across sections.",
+      "Distinguish necessary Abstract-Introduction-Conclusion correspondence from low-increment repetition.",
+      "Create a framework inventory and merge labels that do not change interpretation or action.",
+      "Compress redundant sections before sentence-level polishing.",
+      "Preserve definitions, limitations, evidence, and any Methods or Results content."
+    ],
+    "forbidden_outcomes": [
+      "Treating frequent words as the main problem.",
+      "Deleting every taxonomy or every repeated thesis sentence.",
+      "Inventing evidence, counterexamples, or mechanisms.",
+      "Claiming that the structure proves AI authorship."
+    ]
+  },
+  {
+    "id": "functional-taxonomy-negative-control",
+    "task": "Review a framework in which every evidence state changes the permitted next action.",
+    "input_profile": {
+      "categories": [
+        "technical",
+        "retrospective clinical",
+        "prospective clinical"
+      ],
+      "distinct_consequences": true,
+      "introduction_conclusion_echo": true
+    },
+    "expected_decisions": [
+      "Retain all categories because each changes evidence, action, and claim boundaries.",
+      "Allow concise Introduction-Conclusion correspondence.",
+      "Remove only sentences that repeat category names without adding a consequence."
+    ],
+    "forbidden_outcomes": [
+      "Merging categories solely because the taxonomy looks neat.",
+      "Removing the Conclusion's necessary return to the deployment implication.",
+      "Labeling the taxonomy as proof of AI authorship."
+    ]
+  },
+  {
+    "id": "local-edit-scope-boundary",
+    "task": "Polish one English paragraph from a manuscript.",
+    "input_profile": {
+      "authorized_scope": "one paragraph",
+      "full_document_available": true
+    },
+    "expected_decisions": [
+      "Edit the paragraph and its immediate context only when needed.",
+      "Preserve facts, citations, numbers, and uncertainty.",
+      "Mention a possible document-level issue only as an optional observation."
+    ],
+    "forbidden_outcomes": [
+      "Reorganizing the full manuscript without authorization.",
+      "Changing automatic fields, references, or unrelated sections."
+    ]
+  }
+]

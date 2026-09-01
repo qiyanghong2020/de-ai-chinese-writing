@@ -1,173 +1,183 @@
 <div align="center">
 
-<h1>de-ai-writing</h1>
+<img src="assets/social-preview.png" alt="de-ai-writing：自然的中英文写作，保留证据，删掉模板感" width="100%">
 
-<p><strong>面向中英文写作的 Codex 技能：减少模板味和机器抛光感，同时保留事实、证据与作者语气。</strong></p>
+# de-ai-writing
 
-<p>
-  <a href="README.md">English</a>
-  ·
-  <a href="https://github.com/qiyanghong2020/de-ai-writing/issues">问题反馈</a>
-  ·
-  <a href="#安装">安装</a>
-</p>
+**面向自然、具体、有作者感的中英文写作；不改坏事实和证据。**
 
-<p>
-  <a href="https://github.com/qiyanghong2020/de-ai-writing/stargazers"><img src="https://img.shields.io/github/stars/qiyanghong2020/de-ai-writing?style=social" alt="GitHub stars"></a>
-  <a href="https://github.com/qiyanghong2020/de-ai-writing/commits/main"><img src="https://img.shields.io/github/last-commit/qiyanghong2020/de-ai-writing" alt="Last commit"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/qiyanghong2020/de-ai-writing" alt="MIT License"></a>
-  <img src="https://img.shields.io/badge/Codex-skill-111827" alt="Codex skill">
-  <img src="https://img.shields.io/badge/languages-English%20%7C%20中文-2563EB" alt="中英文">
-</p>
+[English](README.md) · [完整案例](examples/README.md) · [安装](docs/installation.md) · [隐私](docs/privacy.md) · [问题反馈](https://github.com/qiyanghong2020/de-ai-writing/issues)
+
+[![GitHub stars](https://img.shields.io/github/stars/qiyanghong2020/de-ai-writing?style=social)](https://github.com/qiyanghong2020/de-ai-writing/stargazers)
+[![Release](https://img.shields.io/github/v/release/qiyanghong2020/de-ai-writing?display_name=tag)](https://github.com/qiyanghong2020/de-ai-writing/releases)
+[![Validate](https://github.com/qiyanghong2020/de-ai-writing/actions/workflows/validate.yml/badge.svg)](https://github.com/qiyanghong2020/de-ai-writing/actions/workflows/validate.yml)
+[![skills.sh](https://skills.sh/b/qiyanghong2020/de-ai-writing)](https://skills.sh/qiyanghong2020/de-ai-writing)
+[![MIT License](https://img.shields.io/github/license/qiyanghong2020/de-ai-writing)](LICENSE)
 
 </div>
 
-`de-ai-writing` 是一个面向 Codex 的中英文去 AI 腔技能，用于处理过度结构化、空泛、重复、翻译腔明显或被模型“磨得太平”的文字。它适用于中英文论文、医学稿件、学位论文、邮件、申请材料、报告、产品文档和长篇概念性文章。
+`de-ai-writing` 用于修改过度结构化、空泛、重复、翻译腔明显或被模型“磨得太平”的中英文文字，覆盖论文、医学稿件、学位论文、邮件、申请材料、报告、产品文档和长篇概念性文章。
 
-它不是 AI 检测绕过工具，也不靠机械替换同义词。技能会在保留事实、数字、引用、不确定性、文体和作者意图的前提下，处理真正造成模板感的表达与结构问题。
+它不是 AI 检测绕过工具，也不靠机械替换同义词。修改过程中，事实、数字、引用、不确定性、文体和作者意图都属于受保护内容。
 
-## 它能识别什么
+## 30 秒看懂工作流
 
-- 模板化连接词和解释过满的脚手架
-- 重复句式、对称修辞和过于均匀的节奏
-- 缺少明确主体、动作、条件或后果的抽象表达
-- 被抹平的作者语气，以及中英文翻译腔
-- 表达很顺、但强度超过证据的学术措辞
-- 长篇论文中的跨章节语义重复
-- 没有分析功能的装饰性分类和概念换名
-- Word 或其他长文流程中的结构敏感问题
+<div align="center">
+<img src="assets/demo.gif" alt="约30秒演示：锁定证据、诊断重复、完成改写并审计长篇论文结构" width="900">
+</div>
 
-## 修改示例
+演示使用合成材料，没有上传任何真实稿件。
 
-### English
+## 它与普通 humanizer 有什么不同
 
-> **Before:** Importantly, it is worth noting that self-verification plays a crucial role in enhancing trustworthiness; however, it cannot fully replace external validation.
+| 常见处理方式 | `de-ai-writing` |
+| --- | --- |
+| 删除所谓 AI 高频词和连接词 | 结合上下文判断词汇、结构、语气和证据问题 |
+| 输出一种通用的“人类语气” | 中英文分通道，并保留合理的 World English |
+| 追求 AI detector 分数 | 保留结论与不确定性，不承诺绕过检测 |
+| 只处理句子和段落 | 检查跨章节语义重复、重复收束和低分析增量 |
+| 把整齐框架都视为 AI 腔 | 只要分类改变解释、评价或行动，就保留 taxonomy |
 
-> **After:** Self-verification can catch internal inconsistencies, but it does not establish external validity.
+## 快速安装
 
-### 中文
-
-> **修改前：** 值得注意的是，该结果进一步凸显了在实际应用场景中持续优化相关机制的重要性。
-
-> **修改后：** 该结果说明，相关机制在实际应用前仍需继续优化。
-
-目标不是把文字改得口语化或故意留下错误，而是删除没有信息增量的包装，同时保留原来的结论和证据边界。
-
-## 安装
-
-### 让 Codex 安装
-
-向 Codex 发送：
-
-```text
-请使用 $skill-installer 安装这个技能：https://github.com/qiyanghong2020/de-ai-writing
-```
-
-安装完成后，该技能会在下一轮 Codex 对话中可用。
-
-### 手动安装
-
-macOS 或 Linux：
+使用开源的 `skills` CLI：
 
 ```bash
-mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-git clone https://github.com/qiyanghong2020/de-ai-writing.git \
-  "${CODEX_HOME:-$HOME/.codex}/skills/de-ai-writing"
+npx skills add qiyanghong2020/de-ai-writing -g
 ```
 
-如果同名目录已经存在，请先检查或更新现有版本，不要直接覆盖。
+也可以一次安装到 Codex、Claude Code 和 Cursor：
+
+```bash
+npx skills add qiyanghong2020/de-ai-writing \
+  -g -a codex -a claude-code -a cursor -y
+```
+
+手动路径、项目级安装、更新和各客户端调用方式见[跨 Agent 安装说明](docs/installation.md)。
 
 ## 使用方法
-
-通过 `$de-ai-writing` 显式调用技能。
 
 ### 一般改写
 
 ```text
-请使用 $de-ai-writing 改写下面的内容，使表达自然、具体，同时保留全部事实、引用、数字和限制条件。
+请使用 de-ai-writing 修改下面的内容，使表达自然、具体，同时保留全部事实、引用、数字和限制条件。
 ```
 
 ### 中文论文或医学写作
 
 ```text
-请使用 $de-ai-writing 修改这段中文讨论。减少翻译腔、抽象套话和模板化连接词，但不要改变证据强度和医学术语。
+请使用 de-ai-writing 修改这段中文讨论。减少翻译腔、抽象套话和模板化连接词，但不要改变证据强度、统计量和医学术语。
 ```
 
 ### 英文学术稿件
 
 ```text
-Use $de-ai-writing to edit this manuscript paragraph for natural academic English. Preserve the author's World English register and do not strengthen the claims.
+Use de-ai-writing to edit this manuscript paragraph for natural academic English. Preserve the author's World English register and do not strengthen the claims.
 ```
 
 ### 长篇 Viewpoint 或 framework paper
 
 ```text
-请使用 $de-ai-writing 先对这篇完整 Viewpoint 做全文结构审计。梳理中心命题在各章节的复现，列出 gate、state、tier 和 framework 等自创标签，识别分析增量不足的段落并提出压缩方案；不得误删必要的 Methods、Results、定义、限制或 Introduction–Conclusion 呼应。
+请使用 de-ai-writing 先对这篇完整 Viewpoint 做全文结构审计。梳理中心命题在各章节的复现，盘点 gate、state、tier 和 framework 等标签，识别分析增量不足的段落并提出压缩方案；不得误删必要的 Methods、Results、定义、限制或 Introduction–Conclusion 呼应。
 ```
+
+在 Codex 中可用 `$de-ai-writing`，在 Claude Code 和 Cursor 中可用 `/de-ai-writing`。当任务与技能描述吻合时，各客户端也可以自动调用。
+
+## 完整案例
+
+全部案例均为合成材料，并展示受保护信息、问题诊断、修改结果以及有意保留的内容。
+
+| 案例 | 展示的关键判断 |
+| --- | --- |
+| [英文学术段落](examples/01-english-academic.md) | 不把观察性相关改写成因果结论 |
+| [英文工作邮件](examples/02-english-email.md) | 让请求和截止时间清楚，同时保持礼貌 |
+| [中文医学讨论](examples/03-chinese-medical.md) | 保留样本量、效应量、区间和研究设计边界 |
+| [中文工作邮件](examples/04-chinese-workplace-email.md) | 删去程序化铺垫，不牺牲职业语气 |
+| [30页 Viewpoint 审计](examples/05-viewpoint-structural-audit.md) | 建立命题复现图，合并装饰性概念标签 |
+| [taxonomy 反例](examples/06-taxonomy-preservation.md) | 保留具有独立决策后果的分类 |
+| [World English 保留](examples/07-world-english.md) | 提高清晰度，但不抹去场景化语域 |
+
+## 工作方式
+
+1. **锁定意义。** 先保护结论、数字、来源、比较方向和不确定性。
+2. **选择通道。** 只在任务需要时加载中文、英文、医学/论文或长文规则。
+3. **先诊断，再改写。** 区分词汇、结构、语气、证据和作者声音问题。
+4. **在合适尺度上修改。** 处理局部段落；只有得到授权时，才先压缩全文重复再做句级润色。
+5. **进行人工式复核。** 确认结果符合文体，没有新增事实，也没有强化结论。
+
+详细规则放在 `references/` 中，Agent 按需读取，不会把大教程全部塞进入口文件。
 
 ## 长篇论文的结构级审计
 
-有些 AI 腔不在单句，而在全文结构。对于用户明确授权的整篇稿件，技能可以：
+对于已授权的全文任务，技能可以：
 
-1. 用一句话概括全文核心命题；
-2. 建立跨章节的 thesis-recurrence map；
-3. 检查每次复现是否增加了证据、限定条件、反例、操作后果或新推论；
-4. 盘点 `framework`、`boundary`、`gate`、`tier`、`state`、`class`、`level`、`matrix` 和 `model` 等概念标签；
-5. 为每个章节确定一个独立任务；
-6. 先压缩没有分析增量的重复，再进入局部改写。
+- 用一句话概括中心命题；
+- 建立跨章节的 thesis-recurrence map；
+- 判断每次复现是否增加证据、限定条件、反例、操作后果、新推论或失效边界；
+- 盘点 `framework`、`boundary`、`gate`、`tier`、`state`、`class`、`level`、`matrix` 和 `model` 等标签；
+- 为每个章节确定一个独立任务；
+- 先压缩没有分析增量的重复，再进入句级润色。
 
-技能不会机械删除所有 taxonomy，也不会把正常的 Introduction–Conclusion 呼应当成冗余。只要一个分类确实改变解释、评价、决策或行动，就应当保留。
+技能不会机械删除 taxonomy、定义、Methods、Results、限制，也不会把正常的 Abstract–Introduction–Conclusion 呼应当成冗余。可查看[完整 Viewpoint 案例](examples/05-viewpoint-structural-audit.md)和[应保留 taxonomy 的反例](examples/06-taxonomy-preservation.md)。
 
-## 设计原则
+## 隐私
 
-- **先保意义。** 事实、引用、数字、比较方向、限制条件和不确定性不能被改坏。
-- **尊重文体。** 医学讨论、产品 README 和工作邮件不应共享一种通用的“人类语气”。
-- **中英文分开处理。** 不把英文写作习惯强行移植到中文里。
-- **具体性优先。** 不靠错别字、俚语、轶事或虚构例子伪装成人工写作。
-- **不承诺检测结果。** 文风不能可靠证明作者身份，AI detector 分数也不是优化目标。
-- **不扩大授权范围。** 用户只要求修改一段时，不擅自重构全文。
+这个仓库只是本地指令与参考文件，不提供托管改写服务，也不会自行收集稿件内容。你选择的 Agent 和模型仍可能按照各自政策处理输入文本。
+
+不要把未发表论文、患者身份信息、保密审稿材料、凭据或法律敏感内容粘贴到未经审查的第三方在线 Demo。只有在服务运营方、模型与子处理方、数据留存、训练用途、删除渠道和事故责任均有明确说明后，仓库才适合接入这类入口。详见[隐私说明](docs/privacy.md)。
+
+## 验证
+
+运行仓库契约测试：
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+只检查 Agent Skills 发现结果、不执行安装：
+
+```bash
+npx skills add . --list
+```
+
+测试覆盖前置 YAML、引用路径、核心边界、案例类型、全文审计能力、本地链接和机器可读的行为预期；不调用 AI detector，也不修改用户文档。
 
 ## 仓库结构
 
 ```text
 de-ai-writing/
-├── SKILL.md
-├── agents/
-│   └── openai.yaml
-└── references/
-    ├── chinese.md
-    ├── english.md
-    ├── execution-patterns.md
-    ├── markers.md
-    ├── rewrite_patterns.md
-    ├── risk_words_quicklist.md
-    └── thesis-medical.md
+├── SKILL.md                 # 路由和核心边界
+├── references/              # 中英文、医学和长文规则
+├── examples/                # 七个完整案例
+├── tests/                   # 契约测试和行为预期
+├── docs/                    # 安装与隐私说明
+├── assets/                  # 社交预览和演示素材
+└── agents/openai.yaml       # Codex 界面元数据
 ```
-
-`SKILL.md` 只保留路由和核心边界，具体的中英文规则与长文执行流程放在 references 中，使技能只加载当前任务真正需要的内容。
 
 ## 使用边界
 
-- 不能根据最终文风确定某一段必然由人或 AI 创作。
+- 最终文风不能证明某一段由人或 AI 创作。
 - AI detector 结果不能作为确定性证据。
 - AI 使用披露应根据真实工作流程和目标期刊或机构政策判断。
+- 用户只要求修改一段时，不擅自重构全文。
 - 投稿或发布前，用户仍需核对修改后的内容。
+
+## 参与改进
+
+欢迎提交 issue 或 pull request，尤其欢迎：
+
+- 事实不变、表达更自然的中英文案例；
+- 学术、医学、技术或职业写作中的领域特异性误判；
+- 应当保留的必要重复或有效分类框架；
+- 可复现的长文边界案例和行为测试。
+
+请不要提交以操纵 AI detector 分数为唯一目标的规则。早期参考和明确拒绝的处理方式见[设计来源说明](UPSTREAM.md)。
 
 ## 许可证
 
 本项目采用 [MIT License](LICENSE)。
 
-## 参与改进
-
-欢迎提交 issue 或 pull request。尤其欢迎以下内容：
-
-- 事实不变、但表达明显更自然的中英文修改案例；
-- 学术、医学、技术或职业写作中的领域特异性误判；
-- 应当保留的必要重复或有效分类框架；
-- 可以复现的长文处理边界案例。
-
-请不要提交以操纵 AI detector 分数为唯一目的的规则。
-
 ---
 
-如果这个技能帮你保住了内容、删掉了模板感，欢迎为[仓库点一个 Star](https://github.com/qiyanghong2020/de-ai-writing)。
+如果这个技能帮你保住了内容、删掉了模板感，欢迎为[仓库点一个 Star](https://github.com/qiyanghong2020/de-ai-writing)，也欢迎分享一个真正难处理的案例。

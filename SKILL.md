@@ -1,6 +1,10 @@
 ---
 name: de-ai-writing
 description: Rewrite Chinese or English prose so it reads more naturally and less like AI-generated text while preserving facts, evidence, logic, genre, and author intent. Use when the user asks to 去 AI 腔, 去除 AI 味, humanize writing, make it less AI, less ChatGPT-like, less generic, more natural, more human, more authorial, less templated, or when Chinese or English prose feels over-structured, repetitive, connector-heavy, vague, over-polished, lexically flat, voice-less, translation-like, or machine-smoothed. Works across English manuscripts, academic writing, thesis prose, Chinese medical writing, translated drafts, emails, application letters, reports, PRDs, README files, product copy, presentations, newsletters, and other Chinese or English writing tasks.
+license: MIT
+metadata:
+  author: qiyanghong2020
+  version: "1.0.0"
 ---
 
 # De-AI Writing

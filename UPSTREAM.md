@@ -1,20 +1,8 @@
-# Upstream Notes
+# Provenance and design notes
 
-## Source
+This repository began as a focused Chinese-language editing skill and grew into a bilingual Agent Skill. The current version keeps the original meaning-preservation goal while adding distinct Chinese and English lanes, cautious academic and medical editing, World English preservation, and document-level structural review.
 
-- upstream repo: `https://github.com/qiyanghong2020/de-ai-writing.git`
-- local active skill path: `/home/hongqy/.codex/skills/de-ai-writing`
-- current branch: `main`
-
-## Local organization
-
-This local skill now uses a single `main` branch:
-
-- `origin/main` tracks the upstream repository
-- local `main` is the active integrated version
-- local enhancements are committed on top of upstream instead of being kept on a separate branch
-
-## Local additions kept on top of upstream
+## Capabilities added during development
 
 - general `de-ai-writing` entry point for both Chinese and English
 - language-lane routing through `references/chinese.md` and `references/english.md`
@@ -23,10 +11,10 @@ This local skill now uses a single `main` branch:
 - explicit checks for overly uniform grammar and sentence landing
 - English AI-tone guidance for lexical overrepresentation, stock transitions, predictable rhythm, generic claims, and voice flattening
 - extra quick references for phrase-level rewrites and risk words
-- local reference file: `references/thesis-medical.md`
+- Chinese thesis and medical guidance in `references/thesis-medical.md`
 - long-document execution guidance in `references/execution-patterns.md`
 
-## External reference consulted locally
+## External reference consulted
 
 - reference repo: `https://github.com/chi111i/BypassAIGC`
 
@@ -45,23 +33,4 @@ What was deliberately not borrowed:
 - forcing longer sentences to simulate “humanity”
 - prompt patterns that make Chinese more full, more explanatory, and more uniformly polished
 
-## Practical sync workflow
-
-To review upstream changes later:
-
-```bash
-git -C /home/hongqy/.codex/skills/de-ai-writing fetch origin
-git -C /home/hongqy/.codex/skills/de-ai-writing diff --stat origin/main..main
-git -C /home/hongqy/.codex/skills/de-ai-writing diff origin/main..main
-```
-
-To see only local edits on top of upstream:
-
-```bash
-git -C /home/hongqy/.codex/skills/de-ai-writing status --short
-git -C /home/hongqy/.codex/skills/de-ai-writing log --oneline origin/main..main
-```
-
-## Reminder
-
-The active skill is the local directory under `~/.codex/skills`, not the remote repository by itself.
+No text or rules were copied verbatim. The useful idea was the workflow boundary: segment long documents, protect structure, and keep compact style memory. The choices rejected above remain rejected because they trade accuracy and author voice for detector-oriented surface changes.
