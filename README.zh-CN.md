@@ -6,7 +6,7 @@
 
 **面向自然、具体、有作者感的中英文写作；不改坏事实和证据。**
 
-[English](README.md) · [完整案例](examples/README.md) · [安装](docs/installation.md) · [隐私](docs/privacy.md) · [问题反馈](https://github.com/qiyanghong2020/de-ai-writing/issues)
+[English](README.md) · [完整案例](examples/README.md) · [安装](docs/installation.md) · [隐私](docs/privacy.md) · [使用条款](docs/terms.md) · [问题反馈](https://github.com/qiyanghong2020/de-ai-writing/issues)
 
 [![GitHub stars](https://img.shields.io/github/stars/qiyanghong2020/de-ai-writing?style=social)](https://github.com/qiyanghong2020/de-ai-writing/stargazers)
 [![Release](https://img.shields.io/github/v/release/qiyanghong2020/de-ai-writing?display_name=tag)](https://github.com/qiyanghong2020/de-ai-writing/releases)

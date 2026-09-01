@@ -19,7 +19,7 @@ class SkillContractTests(unittest.TestCase):
         self.assertRegex(frontmatter, r"(?m)^name: de-ai-writing$")
         self.assertRegex(frontmatter, r"(?m)^description: .{80,}$")
         self.assertRegex(frontmatter, r"(?m)^license: MIT$")
-        self.assertRegex(frontmatter, r'(?m)^  version: "1\.0\.0"$')
+        self.assertRegex(frontmatter, r'(?m)^  version: "1\.0\.1"$')
 
     def test_every_skill_reference_exists(self):
         references = sorted(set(re.findall(r"references/[a-z0-9_.-]+\.md", read("SKILL.md"))))
@@ -82,6 +82,27 @@ class SkillContractTests(unittest.TestCase):
         for case in cases:
             self.assertTrue(case["expected_decisions"])
             self.assertTrue(case["forbidden_outcomes"])
+
+    def test_plugin_submission_materials(self):
+        cases = json.loads(read("tests/plugin_submission_cases.json"))
+        self.assertEqual(len(cases["positive"]), 5)
+        self.assertEqual(len(cases["negative"]), 3)
+        for case in cases["positive"]:
+            self.assertTrue(case["user_prompt"])
+            self.assertTrue(case["expected_behavior"])
+            self.assertTrue(case["expected_result_shape"])
+            self.assertTrue(case["fixture_data"])
+        for case in cases["negative"]:
+            self.assertTrue(case["user_prompt"])
+            self.assertTrue(case["expected_behavior"])
+            self.assertTrue(case["why_not_complete"])
+        for path in [
+            "assets/plugin-logo.png",
+            "docs/plugin-submission.md",
+            "docs/privacy.md",
+            "docs/terms.md",
+        ]:
+            self.assertTrue((ROOT / path).is_file(), path)
 
     def test_readme_local_links_resolve(self):
         for readme_name in ["README.md", "README.zh-CN.md"]:

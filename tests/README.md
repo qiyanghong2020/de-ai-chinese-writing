@@ -15,3 +15,5 @@ The automated tests verify portable frontmatter, reference paths, core safety bo
 - a paragraph-only request should not authorize full-manuscript restructuring.
 
 These cases do not call an AI detector, modify user documents, or claim deterministic model output. They are suitable for manual forward-testing with any Agent Skills-compatible client.
+
+`plugin_submission_cases.json` contains the five positive and three negative reviewer cases required for the OpenAI Plugin Directory submission. Every prompt is synthetic and self-contained, requires no authentication or private fixture, and specifies expected behavior and result shape rather than exact wording.

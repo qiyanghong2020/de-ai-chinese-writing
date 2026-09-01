@@ -6,7 +6,7 @@
 
 **A bilingual Agent Skill for natural, specific, authorial writing—without changing the evidence.**
 
-[简体中文](README.zh-CN.md) · [Examples](examples/README.md) · [Install](docs/installation.md) · [Privacy](docs/privacy.md) · [Issues](https://github.com/qiyanghong2020/de-ai-writing/issues)
+[简体中文](README.zh-CN.md) · [Examples](examples/README.md) · [Install](docs/installation.md) · [Privacy](docs/privacy.md) · [Terms](docs/terms.md) · [Issues](https://github.com/qiyanghong2020/de-ai-writing/issues)
 
 [![GitHub stars](https://img.shields.io/github/stars/qiyanghong2020/de-ai-writing?style=social)](https://github.com/qiyanghong2020/de-ai-writing/stargazers)
 [![Release](https://img.shields.io/github/v/release/qiyanghong2020/de-ai-writing?display_name=tag)](https://github.com/qiyanghong2020/de-ai-writing/releases)
