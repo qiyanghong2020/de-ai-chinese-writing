@@ -19,7 +19,7 @@ class SkillContractTests(unittest.TestCase):
         self.assertRegex(frontmatter, r"(?m)^name: de-ai-writing$")
         self.assertRegex(frontmatter, r"(?m)^description: .{80,}$")
         self.assertRegex(frontmatter, r"(?m)^license: MIT$")
-        self.assertRegex(frontmatter, r'(?m)^  version: "1\.0\.1"$')
+        self.assertRegex(frontmatter, r'(?m)^  version: "1\.0\.2"$')
 
     def test_every_skill_reference_exists(self):
         references = sorted(set(re.findall(r"references/[a-z0-9_.-]+\.md", read("SKILL.md"))))
@@ -103,6 +103,8 @@ class SkillContractTests(unittest.TestCase):
             "docs/terms.md",
         ]:
             self.assertTrue((ROOT / path).is_file(), path)
+        self.assertIn("**Plugin name:** De-AI Writing", read("docs/plugin-submission.md"))
+        self.assertIn('display_name: "De-AI Writing"', read("agents/openai.yaml"))
 
     def test_readme_local_links_resolve(self):
         for readme_name in ["README.md", "README.zh-CN.md"]:

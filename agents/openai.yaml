@@ -1,5 +1,5 @@
 interface:
-  display_name: "去 AI 腔"
+  display_name: "De-AI Writing"
   short_description: "把中英文论文、翻译稿、邮件、申请信和长文改得更自然具体，减少模板味、机器抛光感和 ChatGPT 腔"
   icon_small: "./assets/plugin-logo.png"
   icon_large: "./assets/plugin-logo.png"

@@ -2,7 +2,7 @@
 
 Effective date: September 1, 2026
 
-These terms apply to the `de-ai-writing` skill and its skills-only distribution as **Natural Writing Editor** through the OpenAI Plugin Directory.
+These terms apply to the `de-ai-writing` skill and its skills-only distribution as **De-AI Writing** through the OpenAI Plugin Directory.
 
 ## Purpose
 

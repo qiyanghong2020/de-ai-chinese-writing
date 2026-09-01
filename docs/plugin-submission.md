@@ -4,7 +4,7 @@ This file records the public listing copy and reviewer materials for the skills-
 
 ## Listing
 
-- **Plugin name:** Natural Writing Editor
+- **Plugin name:** De-AI Writing
 - **Technical skill name:** `de-ai-writing`
 - **Category:** Productivity
 - **Developer name:** Qiyang Hong
@@ -30,7 +30,7 @@ Natural Writing Editor revises Chinese and English academic, medical, profession
 
 ## Release notes
 
-Initial public submission of Natural Writing Editor, a skills-only plugin containing the `de-ai-writing` workflow. Version 1.0.1 supports separate Chinese and English editing lanes, academic and medical safeguards, World English, local-scope protection, and document-level structural audits for long conceptual manuscripts. It adds production listing assets and reviewer-ready privacy, terms, and behavior-test materials. It includes no MCP server, authentication, hosted rewriting endpoint, analytics service, or test credentials.
+Initial public submission of De-AI Writing, a skills-only plugin containing the `de-ai-writing` workflow. Version 1.0.2 supports separate Chinese and English editing lanes, academic and medical safeguards, World English, local-scope protection, and document-level structural audits for long conceptual manuscripts. It adds production listing assets and reviewer-ready privacy, terms, and behavior-test materials. It includes no MCP server, authentication, hosted rewriting endpoint, analytics service, or test credentials.
 
 ## Availability proposal
 
