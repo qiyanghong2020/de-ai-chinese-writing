@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="assets/social-preview.png" alt="de-ai-writing：自然的中英文写作，保留证据，删掉模板感" width="100%">
-
 # de-ai-writing
 
-**面向自然、具体、有作者感的中英文写作；不改坏事实和证据。**
+**面向中英文论文的双语学术 humanizer。**
+
+**保留证据，审计完整论证，不只替换几个词。**
 
 [English](README.md) · [完整案例](examples/README.md) · [安装](docs/installation.md) · [隐私](docs/privacy.md) · [使用条款](docs/terms.md) · [问题反馈](https://github.com/qiyanghong2020/de-ai-writing/issues)
 
@@ -16,27 +16,11 @@
 
 </div>
 
-`de-ai-writing` 用于修改过度结构化、空泛、重复、翻译腔明显或被模型“磨得太平”的中英文文字，覆盖论文、医学稿件、学位论文、邮件、申请材料、报告、产品文档和长篇概念性文章。
+`de-ai-writing` 是面向中文与英文稿件的双语学术写作润色工具，覆盖英文学术论文、中文稿件、医学写作、学位论文、邮件、申请材料和技术文档。它会保留事实、数字、引用、比较方向、证据强度、不确定性和作者语域，不会把不同作者的表达抹成同一种声音。
 
-它不是 AI 检测绕过工具，也不靠机械替换同义词。修改过程中，事实、数字、引用、不确定性、文体和作者意图都属于受保护内容。
+在用户明确授权全文处理时，它还可以审计长篇论文的结构：梳理中心命题在不同章节中的复现，识别概念换名和装饰性 taxonomy，并判断篇幅是否与证据和分析贡献相称。
 
-## 30 秒看懂工作流
-
-<div align="center">
-<img src="assets/demo.gif" alt="约30秒演示：锁定证据、诊断重复、完成改写并审计长篇论文结构" width="900">
-</div>
-
-演示使用合成材料，没有上传任何真实稿件。
-
-## 它与普通 humanizer 有什么不同
-
-| 常见处理方式 | `de-ai-writing` |
-| --- | --- |
-| 删除所谓 AI 高频词和连接词 | 结合上下文判断词汇、结构、语气和证据问题 |
-| 输出一种通用的“人类语气” | 中英文分通道，并保留合理的 World English |
-| 追求 AI detector 分数 | 保留结论与不确定性，不承诺绕过检测 |
-| 只处理句子和段落 | 检查跨章节语义重复、重复收束和低分析增量 |
-| 把整齐框架都视为 AI 腔 | 只要分类改变解释、评价或行动，就保留 taxonomy |
+它不是同义词替换器、AI 作者身份鉴定工具或 detector 绕过工具。
 
 ## 快速安装
 
@@ -53,7 +37,46 @@ npx skills add qiyanghong2020/de-ai-writing \
   -g -a codex -a claude-code -a cursor -y
 ```
 
+Claude Code 还可以通过插件市场安装：
+
+```text
+/plugin marketplace add qiyanghong2020/de-ai-writing
+/plugin install de-ai-writing@de-ai-writing
+/reload-plugins
+```
+
+运行重载命令后，技能会在当前会话中生效；也可以重启 Claude Code。
+
 手动路径、项目级安装、更新和各客户端调用方式见[跨 Agent 安装说明](docs/installation.md)。
+
+## 共同基线
+
+可靠的写作技能应当保留原意、不编造细节、尊重作者声音、结合上下文判断问题，也不能把最终文风当成 AI 作者身份的证据。`de-ai-writing` 以这些要求为起点。
+
+## de-ai-writing 增加了什么
+
+| 增量能力 | 实际作用 |
+| --- | --- |
+| 中英文独立通道 | 按语言加载规则，不用同一套风格处理两种语言 |
+| 学术与医学证据边界 | 保护统计量、因果上限、领域术语和各类论文章节的语域 |
+| World English 保留 | 提高清晰度，但不把合理的本地或非母语语域抹成企业式美式英语 |
+| 全文命题复现图 | 检查同一命题在不同章节的功能，不只数相邻段落中的重复词 |
+| 框架与术语盘点 | 只有新标签没有改变解释或行动时才合并概念 |
+| taxonomy 误判保护 | 分类会改变证据、决策或允许声称的内容时予以保留 |
+| 贡献与篇幅审计 | 压缩没有分析增量的重复，不机械追求最短文本 |
+| 作者身份与披露边界 | 将文风诊断与“谁写的”“披露是否充分”分开处理 |
+
+## 30 秒看懂工作流
+
+<div align="center">
+<img src="assets/social-preview.png" alt="de-ai-writing：自然的中英文写作，保留证据，删掉模板感" width="100%">
+</div>
+
+<div align="center">
+<img src="assets/demo.gif" alt="约30秒演示：锁定证据、诊断重复、完成改写并审计长篇论文结构" width="900">
+</div>
+
+演示使用合成材料，没有上传任何真实稿件。
 
 ## 使用方法
 
@@ -81,7 +104,7 @@ Use de-ai-writing to edit this manuscript paragraph for natural academic English
 请使用 de-ai-writing 先对这篇完整 Viewpoint 做全文结构审计。梳理中心命题在各章节的复现，盘点 gate、state、tier 和 framework 等标签，识别分析增量不足的段落并提出压缩方案；不得误删必要的 Methods、Results、定义、限制或 Introduction–Conclusion 呼应。
 ```
 
-在 Codex 中可用 `$de-ai-writing`，在 Claude Code 和 Cursor 中可用 `/de-ai-writing`。当任务与技能描述吻合时，各客户端也可以自动调用。
+普通技能安装后，在 Codex 中可用 `$de-ai-writing`，在 Claude Code 和 Cursor 中可用 `/de-ai-writing`。通过 Claude Code 插件安装后使用 `/de-ai-writing:de-ai-writing`。当任务与技能描述吻合时，各客户端也可以自动调用。
 
 ## 完整案例
 
@@ -96,6 +119,12 @@ Use de-ai-writing to edit this manuscript paragraph for natural academic English
 | [30页 Viewpoint 审计](examples/05-viewpoint-structural-audit.md) | 建立命题复现图，合并装饰性概念标签 |
 | [taxonomy 反例](examples/06-taxonomy-preservation.md) | 保留具有独立决策后果的分类 |
 | [World English 保留](examples/07-world-english.md) | 提高清晰度，但不抹去场景化语域 |
+
+### 两个结构判断速览
+
+**一篇重复的 30 页 Viewpoint。** 同一临床有效性命题出现在摘要、引言、局限、gate、evidence state、治理和结论中。审计保留必要的首尾呼应和具有操作意义的两个 gate，删除重复的 state 层，并合并两个功能重叠的治理分类。[查看命题复现图和压缩方案。](examples/05-viewpoint-structural-audit.md)
+
+**一套应该保留的整齐 taxonomy。** technical、retrospective clinical 和 prospective clinical 三种状态分别允许不同的后续行动和声称范围。技能保留全部分类，只删除重复列举分类名称、没有新增后果的末句。[查看 taxonomy 反例。](examples/06-taxonomy-preservation.md)
 
 ## 工作方式
 
@@ -126,12 +155,12 @@ Use de-ai-writing to edit this manuscript paragraph for natural academic English
 
 不要把未发表论文、患者身份信息、保密审稿材料、凭据或法律敏感内容粘贴到未经审查的第三方在线 Demo。只有在服务运营方、模型与子处理方、数据留存、训练用途、删除渠道和事故责任均有明确说明后，仓库才适合接入这类入口。详见[隐私说明](docs/privacy.md)。
 
-## 验证
+## 实际验证了什么
 
 运行仓库契约测试：
 
 ```bash
-python -m unittest discover -s tests -v
+python3 -m unittest discover -s tests -v
 ```
 
 只检查 Agent Skills 发现结果、不执行安装：
@@ -140,16 +169,24 @@ python -m unittest discover -s tests -v
 npx skills add . --list
 ```
 
-测试覆盖前置 YAML、引用路径、核心边界、案例类型、全文审计能力、本地链接和机器可读的行为预期；不调用 AI detector，也不修改用户文档。
+仓库区分三种验证层级：
+
+- **仓库契约测试**检查前置 YAML、版本一致性、引用路径、核心边界、插件清单、案例覆盖、本地链接和 fixture 结构。
+- **行为/评估 fixtures**为合成案例记录受保护信息、预期判断、禁止结果和输出形式，可供人工或未来自动化前向测试使用。
+- **这些测试没有执行模型端到端评估。** 测试通过不能证明所有 Agent 或模型都一定给出正确改写。
+
+测试不调用 AI detector、付费 API 或外部改写服务，也不修改用户文档。详见[评估规范](evals/README.md)。
 
 ## 仓库结构
 
 ```text
 de-ai-writing/
+├── .claude-plugin/          # Claude Code 插件和市场元数据
 ├── SKILL.md                 # 路由和核心边界
 ├── references/              # 中英文、医学和长文规则
 ├── examples/                # 七个完整案例
-├── tests/                   # 契约测试和行为预期
+├── evals/                   # 合成行为 fixtures，不是模型结果
+├── tests/                   # 确定性的仓库契约测试
 ├── docs/                    # 安装与隐私说明
 ├── assets/                  # 社交预览和演示素材
 └── agents/openai.yaml       # Codex 界面元数据
@@ -167,10 +204,9 @@ de-ai-writing/
 
 欢迎提交 issue 或 pull request，尤其欢迎：
 
-- 事实不变、表达更自然的中英文案例；
-- 学术、医学、技术或职业写作中的领域特异性误判；
-- 应当保留的必要重复或有效分类框架；
-- 可复现的长文边界案例和行为测试。
+- **误判（false positive）：** 合理的表达、taxonomy、引用或必要重复被删改。请提供文体、原文、预期判断和实际结果。
+- **意义丢失（meaning loss）：** 改写遗漏或改变事实、排名、同时性、效应方向、不确定性、限制、引用关系或适用范围。
+- **长文案例（long-document case）：** 可复现的跨章节重复、概念换名、装饰性框架或贡献与篇幅失衡。请使用合成或可公开材料，并指出不同章节各自应承担的任务。
 
 请不要提交以操纵 AI detector 分数为唯一目标的规则。早期参考和明确拒绝的处理方式见[设计来源说明](UPSTREAM.md)。
 

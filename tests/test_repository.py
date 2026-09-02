@@ -11,6 +11,10 @@ def read(relative_path: str) -> str:
     return (ROOT / relative_path).read_text(encoding="utf-8")
 
 
+def read_json(relative_path: str):
+    return json.loads(read(relative_path))
+
+
 class SkillContractTests(unittest.TestCase):
     def test_skill_frontmatter_and_release_metadata(self):
         text = read("SKILL.md")
@@ -19,7 +23,7 @@ class SkillContractTests(unittest.TestCase):
         self.assertRegex(frontmatter, r"(?m)^name: de-ai-writing$")
         self.assertRegex(frontmatter, r"(?m)^description: .{80,}$")
         self.assertRegex(frontmatter, r"(?m)^license: MIT$")
-        self.assertRegex(frontmatter, r'(?m)^  version: "1\.0\.2"$')
+        self.assertRegex(frontmatter, r'(?m)^  version: "1\.1\.0"$')
 
     def test_every_skill_reference_exists(self):
         references = sorted(set(re.findall(r"references/[a-z0-9_.-]+\.md", read("SKILL.md"))))
@@ -74,7 +78,7 @@ class SkillContractTests(unittest.TestCase):
             self.assertTrue("Synthetic demonstration" in text or "合成演示材料" in text)
 
     def test_behavior_cases_have_positive_and_negative_expectations(self):
-        cases = json.loads(read("tests/behavior_cases.json"))
+        cases = read_json("tests/behavior_cases.json")
         self.assertGreaterEqual(len(cases), 2)
         ids = {case["id"] for case in cases}
         self.assertIn("long-viewpoint-cross-section-redundancy", ids)
@@ -83,8 +87,116 @@ class SkillContractTests(unittest.TestCase):
             self.assertTrue(case["expected_decisions"])
             self.assertTrue(case["forbidden_outcomes"])
 
+    def test_evaluation_fixtures_cover_twelve_required_boundaries(self):
+        cases = read_json("evals/cases.json")
+        self.assertIsInstance(cases, list)
+        self.assertEqual(len(cases), 12)
+        required_fields = {
+            "id",
+            "language",
+            "genre",
+            "input",
+            "protected_claims",
+            "expected_decisions",
+            "forbidden_outcomes",
+            "expected_output_shape",
+        }
+        required_ids = {
+            "english-academic-association-ceiling",
+            "chinese-medical-effect-and-limit",
+            "english-email-polite-deadline",
+            "chinese-email-clear-next-step",
+            "long-viewpoint-thesis-recurrence",
+            "functional-taxonomy-preservation",
+            "world-english-register-preservation",
+            "ranking-claim-preservation",
+            "simultaneity-claim-preservation",
+            "sourced-objection-preservation",
+            "quoted-title-and-proper-name-protection",
+            "local-request-scope-boundary",
+        }
+        scalar_fields = {"id", "language", "genre", "input", "expected_output_shape"}
+        list_fields = {"protected_claims", "expected_decisions", "forbidden_outcomes"}
+        ids = []
+        for case in cases:
+            self.assertIsInstance(case, dict)
+            self.assertEqual(set(case), required_fields)
+            for field in scalar_fields:
+                self.assertIsInstance(case[field], str)
+                self.assertTrue(case[field].strip(), field)
+            for field in list_fields:
+                self.assertIsInstance(case[field], list)
+                self.assertTrue(case[field], field)
+                for item in case[field]:
+                    self.assertIsInstance(item, str)
+                    self.assertTrue(item.strip(), field)
+            self.assertIn(case["language"], {"Chinese", "English"})
+            ids.append(case["id"])
+        self.assertEqual(len(ids), len(set(ids)))
+        self.assertEqual(set(ids), required_ids)
+
+    def test_claude_plugin_uses_root_skill_without_external_services(self):
+        plugin = read_json(".claude-plugin/plugin.json")
+        marketplace = read_json(".claude-plugin/marketplace.json")
+        self.assertIsInstance(plugin, dict)
+        self.assertIsInstance(marketplace, dict)
+        self.assertIsInstance(marketplace.get("plugins"), list)
+        self.assertEqual(len(marketplace["plugins"]), 1)
+        entry = marketplace["plugins"][0]
+        self.assertIsInstance(entry, dict)
+
+        self.assertEqual(plugin["name"], "de-ai-writing")
+        self.assertEqual(plugin["displayName"], "De-AI Writing")
+        self.assertEqual(plugin["version"], "1.1.0")
+        self.assertEqual(plugin["skills"], ["./"])
+        self.assertEqual(marketplace["name"], "de-ai-writing")
+        self.assertEqual(entry["name"], plugin["name"])
+        self.assertEqual(entry["source"], "./")
+        self.assertEqual(entry["version"], plugin["version"])
+        self.assertEqual(entry["description"], plugin["description"])
+        self.assertEqual(entry["license"], plugin["license"])
+        for key in ["mcpServers", "hooks", "dependencies", "telemetry"]:
+            self.assertNotIn(key, plugin)
+            self.assertNotIn(key, entry)
+        for document, fields in [
+            (plugin, ["name", "displayName", "version", "description", "homepage", "repository", "license"]),
+            (marketplace, ["name", "description"]),
+            (entry, ["name", "source", "description", "version", "license"]),
+        ]:
+            for field in fields:
+                self.assertIsInstance(document[field], str)
+                self.assertTrue(document[field].strip(), field)
+        for document, identity_field in [(plugin, "author"), (marketplace, "owner"), (entry, "author")]:
+            self.assertIsInstance(document[identity_field], dict)
+            self.assertIsInstance(document[identity_field].get("name"), str)
+            self.assertTrue(document[identity_field]["name"].strip())
+        self.assertNotIn("..", entry["source"])
+
+        skill_files = [path.relative_to(ROOT) for path in ROOT.rglob("SKILL.md")]
+        self.assertEqual(skill_files, [Path("SKILL.md")])
+        install_docs = [read("README.md"), read("README.zh-CN.md"), read("docs/installation.md")]
+        for installation in install_docs:
+            self.assertIn("/plugin marketplace add qiyanghong2020/de-ai-writing", installation)
+            self.assertIn("/plugin install de-ai-writing@de-ai-writing", installation)
+            self.assertIn("/reload-plugins", installation)
+        self.assertIn("/de-ai-writing:de-ai-writing", install_docs[-1])
+
+        workflow = read(".github/workflows/validate.yml")
+        self.assertIn("npx --yes skills@1.5.23 add . --list", workflow)
+        interface = read("agents/openai.yaml")
+        for fragment in [
+            "$de-ai-writing",
+            "keep local requests local",
+            "thesis recurrence",
+            "concept relabeling",
+            "taxonomy function",
+            "contribution-to-length",
+            "without chasing detector scores or inferring authorship",
+        ]:
+            self.assertIn(fragment, interface)
+
     def test_plugin_submission_materials(self):
-        cases = json.loads(read("tests/plugin_submission_cases.json"))
+        cases = read_json("tests/plugin_submission_cases.json")
         self.assertEqual(len(cases["positive"]), 5)
         self.assertEqual(len(cases["negative"]), 3)
         for case in cases["positive"]:

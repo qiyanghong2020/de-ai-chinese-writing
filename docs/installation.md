@@ -38,14 +38,24 @@ Invoke it with `$de-ai-writing`, or describe a matching Chinese or English editi
 
 ## Claude Code
 
-Claude Code discovers personal skills under `~/.claude/skills/` and project skills under `.claude/skills/`.
+For a versioned, repository-backed plugin install:
+
+```text
+/plugin marketplace add qiyanghong2020/de-ai-writing
+/plugin install de-ai-writing@de-ai-writing
+/reload-plugins
+```
+
+Reloading activates the plugin in the current session; restarting Claude Code also applies the change. The plugin keeps the root `SKILL.md` as the single skill entry point and packages its relative references with the repository. Invoke the installed plugin as `/de-ai-writing:de-ai-writing`.
+
+For a plain personal-skill install without plugin namespacing, Claude Code discovers personal skills under `~/.claude/skills/` and project skills under `.claude/skills/`:
 
 ```bash
 git clone https://github.com/qiyanghong2020/de-ai-writing.git \
   "$HOME/.claude/skills/de-ai-writing"
 ```
 
-Invoke it with `/de-ai-writing`. Claude Code can also load it automatically when the request matches the frontmatter description.
+Invoke a plain skill install with `/de-ai-writing`. Claude Code can also load it automatically when the request matches the frontmatter description.
 
 ## Cursor
 
@@ -92,5 +102,7 @@ Official client references:
 
 - [Agent Skills specification](https://agentskills.io/specification)
 - [Claude Code skills](https://code.claude.com/docs/en/skills)
+- [Claude Code plugins](https://code.claude.com/docs/en/plugins)
+- [Claude Code plugin marketplaces](https://code.claude.com/docs/en/plugin-marketplaces)
 - [Cursor Agent Skills](https://cursor.com/docs/skills)
 - [`skills` CLI](https://github.com/vercel-labs/skills)

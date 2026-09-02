@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="assets/social-preview.png" alt="de-ai-writing — Natural Chinese and English writing. Keep the evidence. Lose the template." width="100%">
-
 # de-ai-writing
 
-**A bilingual Agent Skill for natural, specific, authorial writing—without changing the evidence.**
+**A bilingual academic humanizer for Chinese and English manuscripts.**
+
+**Preserve the evidence. Audit the whole argument.**
 
 [简体中文](README.zh-CN.md) · [Examples](examples/README.md) · [Install](docs/installation.md) · [Privacy](docs/privacy.md) · [Terms](docs/terms.md) · [Issues](https://github.com/qiyanghong2020/de-ai-writing/issues)
 
@@ -16,27 +16,11 @@
 
 </div>
 
-`de-ai-writing` revises Chinese and English prose that feels over-structured, generic, repetitive, translation-shaped, or machine-smoothed. It handles academic and medical manuscripts, theses, emails, applications, reports, product documents, and long conceptual papers.
+`de-ai-writing` helps humanize AI writing without flattening the author's work. It edits Chinese writing, English manuscripts, medical writing, emails, applications, and technical documents while protecting facts, numbers, citations, comparison direction, evidence strength, uncertainty, and the writer's register.
 
-It is not a detector bypass or a synonym spinner. Facts, numbers, citations, uncertainty, genre, and author intent are protected throughout the edit.
+For an authorized full-paper review, it also runs a long-form structural audit: it maps cross-section thesis recurrence, identifies conceptual relabeling and decorative taxonomies, and tests whether manuscript length is proportionate to the evidence and analytical contribution.
 
-## See the workflow
-
-<div align="center">
-<img src="assets/demo.gif" alt="Thirty-second illustrated workflow: lock evidence, diagnose repetition, rewrite, and audit long papers" width="900">
-</div>
-
-The demo uses synthetic material. No manuscript was uploaded to produce it.
-
-## Why this skill is different
-
-| Common humanizer behavior | `de-ai-writing` |
-| --- | --- |
-| Replaces suspicious words and connectors | Diagnoses lexical, structural, tonal, and evidence problems in context |
-| Produces one generic “human” voice | Uses separate Chinese and English lanes and preserves legitimate World English |
-| Optimizes for a detector score | Preserves claims and uncertainty; makes no detector-evasion promise |
-| Stops at the paragraph | Audits cross-section repetition, rhetorical closure, and low analytical increment |
-| Deletes neat frameworks as “AI-like” | Keeps a taxonomy when its categories change interpretation, evaluation, or action |
+It is not a synonym spinner, an AI-authorship test, or a detector-bypass tool.
 
 ## Quick start
 
@@ -53,7 +37,46 @@ npx skills add qiyanghong2020/de-ai-writing \
   -g -a codex -a claude-code -a cursor -y
 ```
 
+Claude Code users can also install the repository as a plugin:
+
+```text
+/plugin marketplace add qiyanghong2020/de-ai-writing
+/plugin install de-ai-writing@de-ai-writing
+/reload-plugins
+```
+
+Reload the plugins to activate the skill in the current session, or restart Claude Code.
+
 See the [cross-agent installation guide](docs/installation.md) for manual paths, project-level installs, updates, and invocation details.
+
+## Shared baseline
+
+A trustworthy writing skill should preserve meaning, avoid invented detail, match the writer's voice, diagnose patterns in context, and never treat prose style as proof of AI authorship. `de-ai-writing` starts from that baseline.
+
+## What de-ai-writing adds
+
+| Additional layer | What changes in practice |
+| --- | --- |
+| Chinese and English lanes | Loads language-specific guidance instead of forcing both languages through one style |
+| Academic and medical safeguards | Protects evidence strength, statistics, causal limits, field terms, and manuscript subgenres |
+| World English preservation | Improves clarity without replacing a legitimate local or non-native register with generic corporate English |
+| Document-level thesis mapping | Tracks the same proposition across sections, not only repeated words in adjacent paragraphs |
+| Framework and terminology inventory | Merges labels only when they rename the same concept without changing interpretation or action |
+| Taxonomy false-positive protection | Keeps categories whose evidence, decisions, or permissible claims differ |
+| Contribution-to-length audit | Compresses low-increment repetition without mechanically pursuing the shortest text |
+| Authorship and disclosure boundaries | Separates style diagnosis from claims about who wrote the text or whether disclosure is sufficient |
+
+## See the workflow
+
+<div align="center">
+<img src="assets/social-preview.png" alt="de-ai-writing — Natural Chinese and English writing. Keep the evidence. Lose the template." width="100%">
+</div>
+
+<div align="center">
+<img src="assets/demo.gif" alt="Thirty-second illustrated workflow: lock evidence, diagnose repetition, rewrite, and audit long papers" width="900">
+</div>
+
+The demo uses synthetic material. No manuscript was uploaded to produce it.
 
 ## Use it
 
@@ -81,7 +104,7 @@ Use de-ai-writing to edit this manuscript paragraph for natural academic English
 Use de-ai-writing to audit this full Viewpoint before rewriting. Map where the central thesis recurs, inventory gates/states/tiers/frameworks, identify sections with low analytical increment, and propose compression without deleting necessary Methods, Results, definitions, limitations, or Introduction–Conclusion correspondence.
 ```
 
-Invoke it as `$de-ai-writing` in Codex or `/de-ai-writing` in Claude Code and Cursor. Automatic discovery can also apply it when the request matches the skill description.
+Invoke a plain skill install as `$de-ai-writing` in Codex or `/de-ai-writing` in Claude Code and Cursor. A Claude Code plugin install uses `/de-ai-writing:de-ai-writing`. Automatic discovery can also apply the skill when the request matches its description.
 
 ## Worked examples
 
@@ -96,6 +119,12 @@ All examples are synthetic and show the protected facts, diagnosis, revision, an
 | [30-page Viewpoint audit](examples/05-viewpoint-structural-audit.md) | Maps thesis recurrence and merges decorative concept labels |
 | [Taxonomy negative control](examples/06-taxonomy-preservation.md) | Retains categories with independent decision consequences |
 | [World English preservation](examples/07-world-english.md) | Improves clarity without erasing a setting-specific register |
+
+### Two structural decisions at a glance
+
+**A repetitive 30-page Viewpoint.** The same clinical-validity thesis appears in the Abstract, Introduction, limits, gates, evidence states, governance, and Conclusion. The audit keeps the necessary opening and closing correspondence, retains the two gates because they change the evaluation sequence, removes a duplicate state layer, and merges two overlapping governance taxonomies. [See the recurrence map and compression plan.](examples/05-viewpoint-structural-audit.md)
+
+**A neat taxonomy that should stay.** Technical, retrospective clinical, and prospective clinical states each permit a different next action and a different claim. The skill keeps all three and removes only a final sentence that repeats their names without adding a consequence. [See the negative control.](examples/06-taxonomy-preservation.md)
 
 ## How it works
 
@@ -126,12 +155,12 @@ This repository is a local set of instructions and references. It does not host 
 
 Do not paste unpublished manuscripts, patient identifiers, confidential peer review, credentials, or legally sensitive text into an unreviewed third-party demo. A hosted demo should be linked only after its operator, model subprocessors, retention, training use, deletion route, and incident responsibility are documented. Read the [privacy guidance](docs/privacy.md).
 
-## Validation
+## What is actually tested
 
 Run the repository contract tests:
 
 ```bash
-python -m unittest discover -s tests -v
+python3 -m unittest discover -s tests -v
 ```
 
 Inspect portable Agent Skills discovery without installing:
@@ -140,16 +169,24 @@ Inspect portable Agent Skills discovery without installing:
 npx skills add . --list
 ```
 
-The test suite checks frontmatter, reference paths, safeguards, example coverage, document-level audit concepts, local links, and machine-readable behavior expectations. It does not call an AI detector or modify user documents.
+The repository distinguishes three levels of evidence:
+
+- **Repository contract tests** check frontmatter, version consistency, reference paths, safeguards, plugin manifests, example coverage, local links, and fixture structure.
+- **Behavior/evaluation fixtures** specify protected claims, expected decisions, forbidden outcomes, and result shapes for synthetic cases. They are reusable inputs for manual or future automated forward tests.
+- **Model end-to-end evaluation has not been run by these tests.** Passing the suite does not prove that every Agent or model will produce a correct rewrite.
+
+No test calls an AI detector, paid API, or external rewriting service, and no test modifies a user document. See the [evaluation specification](evals/README.md).
 
 ## Repository map
 
 ```text
 de-ai-writing/
+├── .claude-plugin/          # Claude Code plugin and marketplace metadata
 ├── SKILL.md                 # routing and core safeguards
 ├── references/              # Chinese, English, medical, and long-document guidance
 ├── examples/                # seven complete worked cases
-├── tests/                   # contract tests and behavior expectations
+├── evals/                   # synthetic behavior fixtures; not model results
+├── tests/                   # deterministic repository contract tests
 ├── docs/                    # installation and privacy guidance
 ├── assets/                  # social preview and illustrated demo
 └── agents/openai.yaml       # Codex interface metadata
@@ -167,10 +204,9 @@ de-ai-writing/
 
 Issues and pull requests are welcome, especially for:
 
-- fact-preserving Chinese or English examples;
-- false positives in academic, medical, technical, or professional writing;
-- legitimate taxonomies or necessary repetition that should be preserved;
-- reproducible long-document edge cases and behavior tests.
+- **False positives:** a legitimate phrase, taxonomy, quotation, or necessary repetition that the skill removed. Include the genre, source excerpt, expected decision, and actual result.
+- **Meaning loss:** a rewrite that dropped or changed a fact, ranking, simultaneity claim, effect direction, uncertainty, limitation, citation relationship, or scope boundary.
+- **Long-document cases:** reproducible cross-section repetition, conceptual relabeling, decorative frameworks, or contribution-to-length problems. Use synthetic or publishable material and identify which sections should perform distinct jobs.
 
 Do not submit rules whose only goal is to manipulate an AI-detector score. See the [design provenance](UPSTREAM.md) for earlier influences and rejected tactics.
 

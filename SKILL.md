@@ -4,7 +4,7 @@ description: Rewrite Chinese or English prose so it reads more naturally and les
 license: MIT
 metadata:
   author: qiyanghong2020
-  version: "1.0.2"
+  version: "1.1.0"
 ---
 
 # De-AI Writing

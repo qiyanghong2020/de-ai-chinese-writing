@@ -1,0 +1,250 @@
+[
+  {
+    "id": "english-academic-association-ceiling",
+    "language": "English",
+    "genre": "academic manuscript",
+    "input": "It is important to note that, in our retrospective cohort of 218 adults, exposure A was associated with 30-day readmission (odds ratio 1.42, 95% CI 1.08-1.87). This pivotal finding underscores the need for attention. Because the study was observational, it cannot establish that exposure A caused readmission.",
+    "protected_claims": [
+      "The cohort was retrospective and included 218 adults.",
+      "Exposure A was associated with 30-day readmission.",
+      "The odds ratio was 1.42 and the 95% CI was 1.08-1.87.",
+      "The observational design does not establish causation."
+    ],
+    "expected_decisions": [
+      "Remove stock framing while retaining the association and design limitation.",
+      "Keep the result below the causal ceiling."
+    ],
+    "forbidden_outcomes": [
+      "Changing association into causation.",
+      "Changing or omitting the sample size, estimate, interval, outcome, or study design."
+    ],
+    "expected_output_shape": "One concise academic paragraph with the result and limitation."
+  },
+  {
+    "id": "chinese-medical-effect-and-limit",
+    "language": "Chinese",
+    "genre": "医学论文讨论",
+    "input": "值得注意的是，本研究对312例患者进行了回顾性分析，高表达组与较长的无进展生存期相关（HR=0.74，95%CI 0.56-0.98）。这一关键发现充分彰显了该指标的临床价值。然而，本研究为单中心设计，尚不能证明该指标能够预测治疗获益。",
+    "protected_claims": [
+      "研究为312例患者的回顾性分析。",
+      "高表达组与较长的无进展生存期相关。",
+      "HR为0.74，95%CI为0.56-0.98。",
+      "研究为单中心设计，不能据此证明治疗获益预测能力。"
+    ],
+    "expected_decisions": [
+      "删除空泛评价，保留医学证据报告方式。",
+      "区分预后相关性与治疗获益预测。"
+    ],
+    "forbidden_outcomes": [
+      "把相关性改成机制、因果关系或临床效用。",
+      "改变数字、效应方向、终点或单中心限制。"
+    ],
+    "expected_output_shape": "一个保留统计量和限制条件的中文医学讨论段落。"
+  },
+  {
+    "id": "english-email-polite-deadline",
+    "language": "English",
+    "genre": "workplace email",
+    "input": "I hope this email finds you well. I am reaching out to kindly ask whether you might possibly have time to review the attached draft. If feasible, could you send comments by 16 September? The conference deadline is 20 September. Thank you so much for your continued support and valuable guidance.",
+    "protected_claims": [
+      "The recipient is asked to review the attached draft.",
+      "Comments are requested by 16 September.",
+      "The conference deadline is 20 September.",
+      "The tone must remain professional and polite."
+    ],
+    "expected_decisions": [
+      "Move the request and deadline into clear view.",
+      "Reduce padded politeness without becoming abrupt."
+    ],
+    "forbidden_outcomes": [
+      "Changing either date.",
+      "Adding urgency, consequences, or relationship details not present in the input."
+    ],
+    "expected_output_shape": "A short professional email with a clear ask, reason, and deadline."
+  },
+  {
+    "id": "chinese-email-clear-next-step",
+    "language": "Chinese",
+    "genre": "工作邮件",
+    "input": "王老师您好。为了进一步推进后续工作的顺利开展，想麻烦您在方便的时候对表2进行一个整体性的核对。如果时间允许，希望您能在9月18日前反馈，因为我们计划在9月20日投稿。非常感谢您的理解、支持与帮助。",
+    "protected_claims": [
+      "收件人为王老师。",
+      "请求核对表2。",
+      "反馈时间为9月18日前。",
+      "计划投稿时间为9月20日。",
+      "语气应保持尊重。"
+    ],
+    "expected_decisions": [
+      "删去程序化铺垫，直接说明请求和时间安排。",
+      "保留合适的称呼和感谢。"
+    ],
+    "forbidden_outcomes": [
+      "改变任务、日期或收件人。",
+      "把邮件改成命令式或增加不存在的附件。"
+    ],
+    "expected_output_shape": "一封简短、尊重且下一步明确的中文工作邮件。"
+  },
+  {
+    "id": "long-viewpoint-thesis-recurrence",
+    "language": "English",
+    "genre": "long Viewpoint",
+    "input": "Abstract: Self-checking can improve internal consistency but cannot establish clinical validity. Introduction: Internal checking cannot determine fitness for clinical use. Limits: Self-verification lacks independent evidence. Two-gate model: Passing the output gate cannot replace the use-case gate. Evidence states: A verification state cannot become a validation state through internal checks. Governance: Internal reassurance cannot substitute for clinical evidence. Conclusion: Clinical fitness requires independent evaluation in the intended setting.",
+    "protected_claims": [
+      "Internal checking and clinical validation have different evidentiary roles.",
+      "The output gate and use-case gate describe an operational sequence.",
+      "Clinical fitness requires independent intended-setting evaluation.",
+      "Concise Abstract-Introduction-Conclusion correspondence is permitted."
+    ],
+    "expected_decisions": [
+      "Create a thesis-recurrence map before local rewriting.",
+      "Keep recurrences that add a definition, operational sequence, governance consequence, or necessary closing echo.",
+      "Propose merging the evidence-state relabeling if it adds no decision rule."
+    ],
+    "forbidden_outcomes": [
+      "Treating frequent words as the main problem.",
+      "Deleting all thesis recurrence or every framework label.",
+      "Claiming that repetition proves AI authorship."
+    ],
+    "expected_output_shape": "A document-level diagnosis with a recurrence map and compression decisions before any rewrite."
+  },
+  {
+    "id": "functional-taxonomy-preservation",
+    "language": "English",
+    "genre": "academic framework",
+    "input": "Technical state: reproducibility tests have passed, so controlled pipeline testing is allowed but no clinical claim is permitted. Retrospective clinical state: a held-out historical cohort has been evaluated, so a prospective silent study is allowed but clinicians must not receive the output. Prospective clinical state: performance and workflow effects have been evaluated in the intended setting, so deployment may be considered within the study and governance limits.",
+    "protected_claims": [
+      "All three states are distinct.",
+      "Each state changes the evidence available, next action, and permissible claim.",
+      "Prospective evidence permits consideration of deployment only within stated limits."
+    ],
+    "expected_decisions": [
+      "Retain all three categories because each changes a decision boundary.",
+      "Remove only repetition that adds no evidence or consequence."
+    ],
+    "forbidden_outcomes": [
+      "Merging categories merely because the taxonomy is neat.",
+      "Upgrading any state to a stronger clinical claim."
+    ],
+    "expected_output_shape": "A brief diagnostic decision followed by a minimally edited taxonomy if rewriting is requested."
+  },
+  {
+    "id": "world-english-register-preservation",
+    "language": "English",
+    "genre": "academic project report",
+    "input": "The district programme was implemented in two government hospitals. Participants returned for review after six weeks, and the field team recorded whether the travel allowance had reached them. The second hospital had fewer return visits because the monsoon cut the road for nine days.",
+    "protected_claims": [
+      "The programme was district-level and implemented in two government hospitals.",
+      "Review occurred after six weeks.",
+      "The field team recorded receipt of the travel allowance.",
+      "The monsoon cut the road for nine days and the second hospital had fewer return visits."
+    ],
+    "expected_decisions": [
+      "Keep clear setting-specific terms such as government hospitals, field team, and travel allowance.",
+      "Make only changes that improve clarity or flow."
+    ],
+    "forbidden_outcomes": [
+      "Replacing the setting with generic American corporate or health-system language.",
+      "Inventing a country, programme sponsor, causal analysis, or participant characteristics."
+    ],
+    "expected_output_shape": "A restrained edit that preserves the setting-specific English register."
+  },
+  {
+    "id": "ranking-claim-preservation",
+    "language": "English",
+    "genre": "technical recommendation",
+    "input": "The single most important change is to separate the safety review from release approval. The remaining interface changes can follow in the next sprint.",
+    "protected_claims": [
+      "Separating safety review from release approval is ranked above every other proposed change.",
+      "The remaining interface changes can wait until the next sprint."
+    ],
+    "expected_decisions": [
+      "Preserve the explicit ranking even if the sentence is tightened."
+    ],
+    "forbidden_outcomes": [
+      "Weakening single most important to important or one priority.",
+      "Changing the sequence or sprint commitment."
+    ],
+    "expected_output_shape": "A concise recommendation that retains the ranking and sequence."
+  },
+  {
+    "id": "simultaneity-claim-preservation",
+    "language": "English",
+    "genre": "analytical report",
+    "input": "The registry is simultaneously the source of the audit trail, the recovery index, and the rule used to resolve duplicate records. Removing any one of these functions changes the migration design.",
+    "protected_claims": [
+      "All three functions are true at the same time.",
+      "Removing any one function changes the migration design."
+    ],
+    "expected_decisions": [
+      "Keep the simultaneity claim and all three distinct functions."
+    ],
+    "forbidden_outcomes": [
+      "Deleting simultaneously as filler.",
+      "Collapsing three load-bearing functions into a vague summary."
+    ],
+    "expected_output_shape": "One or two analytical sentences preserving simultaneity and consequence."
+  },
+  {
+    "id": "sourced-objection-preservation",
+    "language": "English",
+    "genre": "response to reviewer",
+    "input": "Reviewer 2 argues that the apparent calibration gain may reflect temporal drift rather than the new procedure. We agree that this is a plausible alternative explanation. In the quarterly holdout analysis, the Brier score was 0.042 before the procedure and 0.041 after it, so the available data do not separate the two explanations.",
+    "protected_claims": [
+      "Reviewer 2 raised the temporal-drift objection.",
+      "The authors consider the objection plausible.",
+      "The quarterly holdout Brier scores were 0.042 and 0.041.",
+      "The available data do not distinguish the explanations."
+    ],
+    "expected_decisions": [
+      "Retain the named objection and the response because both perform analytical work.",
+      "Tighten only redundant framing."
+    ],
+    "forbidden_outcomes": [
+      "Deleting the objection as a fake alternative.",
+      "Claiming that either explanation is established.",
+      "Changing the Brier scores."
+    ],
+    "expected_output_shape": "A concise reviewer response containing the objection, evidence, and unresolved boundary."
+  },
+  {
+    "id": "quoted-title-and-proper-name-protection",
+    "language": "English",
+    "genre": "literature note",
+    "input": "The reference list includes the article title \"A Pivotal Role for Landscape Structure in Coastal Recovery\" and the registered platform name Robust Gate. These strings must match the cited source and product registration exactly.",
+    "protected_claims": [
+      "The quoted article title must remain exact.",
+      "Robust Gate is a registered platform name and must remain exact.",
+      "The reason for exact preservation is source and registration fidelity."
+    ],
+    "expected_decisions": [
+      "Do not rewrite watched words inside quotations, titles, or proper names."
+    ],
+    "forbidden_outcomes": [
+      "Replacing pivotal, landscape, robust, or gate inside the protected strings.",
+      "Changing quotation content or product capitalization."
+    ],
+    "expected_output_shape": "Either no change or a note that the protected strings should remain exact."
+  },
+  {
+    "id": "local-request-scope-boundary",
+    "language": "English",
+    "genre": "manuscript paragraph edit",
+    "input": "User request: Polish only the paragraph under Discussion 2. Full manuscript context: the Introduction and Conclusion both state the primary thesis, Methods defines the cohort, and Discussion 2 says, 'It is important to note that the association remained after adjustment, although residual confounding cannot be excluded.'",
+    "protected_claims": [
+      "The authorized scope is only the paragraph under Discussion 2.",
+      "The adjusted association remains.",
+      "Residual confounding cannot be excluded.",
+      "The Introduction, Conclusion, and Methods are outside the requested edit."
+    ],
+    "expected_decisions": [
+      "Edit only the requested paragraph and immediate context if needed.",
+      "Preserve the residual-confounding limitation."
+    ],
+    "forbidden_outcomes": [
+      "Restructuring the full manuscript without authorization.",
+      "Deleting the limitation or editing unrelated sections.",
+      "Presenting a full-manuscript recurrence audit as completed."
+    ],
+    "expected_output_shape": "The revised Discussion 2 paragraph only, unless a brief optional observation is requested."
+  }
+]
